@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <h1>SecuryTime</h1>
+  </div>
+  <div class="col-md-7 col-md-offset-2">
+    <div class="connexion" *ngIf="mode==='connexion'">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+
+        <div class="form-group">
+          <input type="text" id="login" placeholder="adresse email" class="form-control" formControlName="login">
+        </div>
+        <div class="form-group">
+          
+          <input type="password" id="pass" placeholder="Mot de passe"class="form-control" formControlName="pass">
+        </div>
+        <a href="#">Mot de passe oublier </a>
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Soumettre</button>
+      </form>
+    </div>
+    <div class="subscribe" *ngIf="mode==='inscrire'">
+      <form action="/action_page.php">
+        <div class="input-container">
+          <i class="icon">Civilité</i>
+          <select class="input-field" name="civilite">
+            <option value="homme">Monsieur</option>
+            <option value="femme">Madame</option>
+          </select>
+        </div>
+        <div class="input-container">
+          <i class="fa fa-user icon"></i>
+          <input class="input-field" type="text" placeholder="Nom" name="nom">
+        </div>
+
+        <div class="input-container">
+          <i class="fa fa-user icon"></i>
+          <input class="input-field" type="text" placeholder="Prénom" name="prenom">
+        </div>
+
+        <div class="input-container">
+          <i class="icon">Né(e)le</i>
+          <input class="input-field" type="date" name="phone">
+        </div>
+
+        <div class="input-container">
+          <i class="fa fa-phone icon"></i>
+          <input class="input-field" type="text" placeholder="Téléphone" name="phone">
+        </div>
+        <div class="input-container">
+          <i class="icon"><label>Pays</label></i>
+          <select class="input-field" name="pays">
+            <option value="France">France</option>
+            <option value="Mali">Mali</option>
+          </select>
+        </div>
+        <div class="input-container">
+          <i class="icon"><label>CP</label></i>
+          <input class="input-field" type="text" placeholder="code postale ou ville" name="ville">
+        </div>
+        <div class="input-container">
+          <i class="fa fa-street-view icon"></i>
+          <input class="input-field" type="text" placeholder="N° Rue et nom de la rue" name="street">
+        </div>
+
+        <div class="input-container">
+          <i class="fa fa-at icon"></i>
+          <input class="input-field" type="text" placeholder="Email" name="email">
+        </div>
+
+        <div class="input-container">
+          <i class="fa fa-key icon"></i>
+          <input class="input-field" type="password" placeholder="Password" name="psw">
+        </div>
+        <div class="input-container">
+          <i class="fa fa-key icon"></i>
+          <input class="input-field" type="password" placeholder="Confirmer" name="conf">
+        </div>
+        <div class="input-container">
+          <input class="input-field" type="checkbox">
+          <p>Accepte le terme de licence</p>
+        </div>
+        <button type="submit" class="btn btn-success">Valider</button>
+
+
+      </form>
+    </div>
+    <h3 class="text-divider"><span>ou</span></h3>
+    <button type="button" class="btn btn-secondary" *ngIf="mode==='inscrire'" (click)="switchConn()">Se
+      connecter</button>
+    <button type="button" class="btn btn-secondary" *ngIf="mode==='connexion'" (click)="switchConn()">S'incrire</button>
+
+  </div>
+</div>
+
+

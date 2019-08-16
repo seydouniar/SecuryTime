@@ -1,0 +1,50 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+  <br>
+  <h3>SecuryTime</h3>
+  <p> <strong>tel:</strong> 0752825307 </p>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <!-- Brand -->
+  <a class="navbar-brand" routerLink="">SecuryTime</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      
+      <li class="nav-item dropdown">
+        <a data-toggle="collapse" class="nav-link dropbtn"
+          routerLink="intervention">Interventions</a>
+          <div class="dropdown-content bg-dark">
+            <a href="#">Télésurveilleurs</a>
+            <a href="#">Sites d'intervention</a>
+            <a href="#">Intervention Rondes Reconnaissances divers</a>
+          </div>
+        </li>
+      <li class="nav-item"><a class="nav-link"
+          routerLink="devis">Devis</a></li>
+      <li class="nav-item"><a class="nav-link"
+          routerLink="facturation">Facturation</a></li>
+      <li class="nav-item"><a class="nav-link"
+          routerLink="agences">agences</a></li>
+      <li class="nav-item active"><a class="nav-link"
+          routerLink="connexion">Connexion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+  
+</div>
