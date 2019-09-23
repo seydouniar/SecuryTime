@@ -1,1 +1,20 @@
-<p>devis works!</p>
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr >
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.nom}}</td>
+                <td>{{user.prenom}}</td>
+            </tr>
+        </tbody>
+            
+        
+    </table>
+</div>

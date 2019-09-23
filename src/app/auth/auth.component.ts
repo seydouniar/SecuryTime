@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
   userForm: FormGroup;
+  signUpForm: FormGroup;
+  message_err='';
   mode: string = 'connexion';
   constructor(private authService: AuthService, 
     private formBuilder: FormBuilder,
@@ -24,6 +26,21 @@ export class AuthComponent implements OnInit {
         login: ['',Validators.required],
         pass: ['', Validators.required]}
     );
+
+    this.signUpForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      psw: ['', Validators.required],
+      phone: ['',Validators.required],
+      street: ['', Validators.required],
+      ville: ['', Validators.required],
+      pays: ['', Validators.required],
+      born: ['', Validators.required],
+      prenom: ['', Validators.required],
+      nom: ['', Validators.required],
+      civilite: ['',Validators.required],
+      conf:['',Validators.required]
+
+    })
   }
 
   switchConn() {
@@ -36,14 +53,38 @@ export class AuthComponent implements OnInit {
   onSubmitForm() {
     const formValue = this.userForm.value;
     console.log(formValue['login'], formValue['pass']);
-    this.authService.login(formValue['login'], formValue['pass']).then(
+    this.authService.signIn(formValue['login'], formValue['pass']).then(
       (user)=>{
-        this.router.navigate(['/intervention']);
-        
+        this.router.navigate(['/home']);
       },
-      err=>{console.log(err);
+      err=>{this.message_err = err.message + " connexion";
       }
     );
+  }
+
+  onSubmitFormSignUp(){
+    const formValue = this.signUpForm.value;
+    const data = {
+      nom: formValue['nom'],
+      prenom: formValue['prenom'],
+      email: formValue['email'],
+      pays: formValue['pays'],
+      ville: formValue['ville'],
+      street: formValue['street'],
+      civilite: formValue['civilite'],
+      phone: formValue['phone'],
+    }
+    if(formValue["psw"] === formValue["conf"]){
+      this.authService.signUp(formValue['email'],formValue['psw'],data).then(
+        ()=>{
+          this.router.navigate(['/home']);
+        },err=>{
+          this.message_err = err.message + " inscription";
+        }
+      )
+    }else{
+      this.message_err = "Mot de passe différent."
+    }
   }
 
 }

@@ -6,15 +6,23 @@ import { FacturationComponent } from './facturation/facturation.component';
 import { AgencesComponent } from './agences/agences.component';
 import { AuthComponent } from './auth/auth.component';
 import { NewCompteComponent } from './new-compte/new-compte.component';
+import { GuardService } from './services/guard.service';
+import { HomeComponent } from './home/home.component';
+import { PlanningComponent } from './planning/planning.component';
+import { NewAgentComponent } from './planning/new-agent/new-agent.component';
 
 const routes: Routes = [
-  {path: 'devis', component: DevisComponent},
-  {path: 'intervention', component: InterventionsComponent},
-  {path: 'facturation', component: FacturationComponent},
-  {path: 'agences', component: AgencesComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'devis', canActivate:[GuardService],component: DevisComponent},
+  { path: 'intervention', canActivate: [GuardService],component: InterventionsComponent},
+  { path: 'facturation', canActivate: [GuardService],component: FacturationComponent},
+  { path: 'agences', canActivate: [GuardService],component: AgencesComponent},
   { path: 'connexion', component: AuthComponent},
-  {path: 'inscription', component: NewCompteComponent},
-  {path: '', component: InterventionsComponent}
+  { path: 'planning', component: PlanningComponent},
+  { path: 'inscription', component: NewCompteComponent},
+  { path: 'newagent', component: NewAgentComponent},
+  { path: '', redirectTo:'home', pathMatch:'full'},
+  { path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({

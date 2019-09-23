@@ -12,6 +12,16 @@ import { AgencesComponent } from './agences/agences.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './services/auth.service';
 import { NewCompteComponent } from './new-compte/new-compte.component';
+import * as firebase from "firebase";
+import { environment } from "../environments/environment";
+import { HomeComponent } from './home/home.component';
+import { GuardService } from './services/guard.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlanningComponent } from './planning/planning.component';
+import { PriseServiceComponent } from './prise-service/prise-service.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NewAgentComponent } from './planning/new-agent/new-agent.component';
+import { AgentServices } from './services/agent.service';
 
 @NgModule({
   declarations: [
@@ -21,17 +31,29 @@ import { NewCompteComponent } from './new-compte/new-compte.component';
     FacturationComponent,
     AgencesComponent,
     AuthComponent,
-    NewCompteComponent
+    NewCompteComponent,
+    HomeComponent,
+    PlanningComponent,
+    PriseServiceComponent,
+    NewAgentComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    GuardService,
+    AgentServices
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    firebase.initializeApp(environment.firebaseConfig);
+  }
+ }

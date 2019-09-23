@@ -3,6 +3,8 @@
     <h1>SecuryTime</h1>
   </div>
   <div class="col-md-7 col-md-offset-2">
+
+    <!-- connexion -->
     <div class="connexion" *ngIf="mode==='connexion'">
       <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
 
@@ -13,37 +15,40 @@
           
           <input type="password" id="pass" placeholder="Mot de passe"class="form-control" formControlName="pass">
         </div>
+        <p class="text-danger" *ngIf="message_err!=''">{{message_err}}</p>
         <a href="#">Mot de passe oublier </a>
         <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Soumettre</button>
       </form>
     </div>
+
+    <!-- inscriptions -->
     <div class="subscribe" *ngIf="mode==='inscrire'">
-      <form action="/action_page.php">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmitFormSignUp()">
         <div class="input-container">
           <i class="icon">Civilité</i>
-          <select class="input-field" name="civilite">
+          <select class="input-field" formControlName="civilite">
             <option value="homme">Monsieur</option>
             <option value="femme">Madame</option>
           </select>
         </div>
         <div class="input-container">
           <i class="fa fa-user icon"></i>
-          <input class="input-field" type="text" placeholder="Nom" name="nom">
+          <input class="input-field" type="text" placeholder="Nom" formControlName="nom">
         </div>
 
         <div class="input-container">
           <i class="fa fa-user icon"></i>
-          <input class="input-field" type="text" placeholder="Prénom" name="prenom">
+          <input class="input-field" type="text" placeholder="Prénom" formControlName="prenom">
         </div>
 
         <div class="input-container">
           <i class="icon">Né(e)le</i>
-          <input class="input-field" type="date" name="phone">
+          <input class="input-field" type="date" formControlName="born">
         </div>
 
         <div class="input-container">
           <i class="fa fa-phone icon"></i>
-          <input class="input-field" type="text" placeholder="Téléphone" name="phone">
+          <input class="input-field" type="text" placeholder="Téléphone" formControlName="phone">
         </div>
         <div class="input-container">
           <i class="icon"><label>Pays</label></i>
@@ -54,26 +59,27 @@
         </div>
         <div class="input-container">
           <i class="icon"><label>CP</label></i>
-          <input class="input-field" type="text" placeholder="code postale ou ville" name="ville">
+          <input class="input-field" type="text" placeholder="code postale ou ville" formControlName="ville">
         </div>
         <div class="input-container">
           <i class="fa fa-street-view icon"></i>
-          <input class="input-field" type="text" placeholder="N° Rue et nom de la rue" name="street">
+          <input class="input-field" type="text" placeholder="N° Rue et nom de la rue" formControlName="street">
         </div>
 
         <div class="input-container">
           <i class="fa fa-at icon"></i>
-          <input class="input-field" type="text" placeholder="Email" name="email">
+          <input class="input-field" type="text" placeholder="Email" formControlName="email">
         </div>
 
         <div class="input-container">
           <i class="fa fa-key icon"></i>
-          <input class="input-field" type="password" placeholder="Password" name="psw">
+          <input class="input-field" type="password" placeholder="Password" formControlName="psw">
         </div>
         <div class="input-container">
           <i class="fa fa-key icon"></i>
-          <input class="input-field" type="password" placeholder="Confirmer" name="conf">
+          <input class="input-field" type="password" placeholder="Confirmer" formControlName="conf">
         </div>
+        <p class="text-danger" *ngIf="message_err!=''">{{message_err}}</p>
         <div class="input-container">
           <input class="input-field" type="checkbox">
           <p>Accepte le terme de licence</p>

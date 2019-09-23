@@ -12,4 +12,8 @@ export class AgencesComponent implements OnInit {
   ngOnInit() {
   }
 
+  //TO-DO
+  //ajout agence
+  //suppression agence
+  
 }
