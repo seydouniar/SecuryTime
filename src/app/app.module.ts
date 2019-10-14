@@ -22,6 +22,10 @@ import { PriseServiceComponent } from './prise-service/prise-service.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewAgentComponent } from './planning/new-agent/new-agent.component';
 import { AgentServices } from './services/agent.service';
+import { AgentDetailsComponent } from './planning/agent-details/agent-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,7 @@ import { AgentServices } from './services/agent.service';
     PlanningComponent,
     PriseServiceComponent,
     NewAgentComponent,
+    AgentDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,12 @@ import { AgentServices } from './services/agent.service';
     ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   providers: [
     AuthService,
@@ -53,7 +63,7 @@ import { AgentServices } from './services/agent.service';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(){
+  constructor() {
     firebase.initializeApp(environment.firebaseConfig);
   }
  }

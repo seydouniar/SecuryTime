@@ -1,12 +1,11 @@
 export interface Agent{
+    id:number;
     matricule:number;
     nom:string;
     genre:string; 
-    adresse:string; 
-    code_postale:number; 
-    ville:string;
-    pays:string;
+    adresse:any; 
     contacts:any;
+    cartes: any;
 }
 
 export interface AgentReponse{
