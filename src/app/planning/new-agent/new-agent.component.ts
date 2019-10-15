@@ -17,7 +17,7 @@ export class NewAgentComponent implements OnInit {
   }
 
   initForm() {
-    const adressform = this.agentForm = this.formBuilder.group({
+      this.agentForm = this.formBuilder.group({
       matricule: ['', Validators.required],
       genre: ['', Validators.required],
       nom: ['', Validators.required],

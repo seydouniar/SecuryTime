@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Agent, AgentReponse } from '../modeles/agent';
 import { Observable, Subject } from 'rxjs';
+import { Site, SiteReponse } from '../modeles/site';
 @Injectable()
 export class AgentServices{
     private listAgent: Agent[];
@@ -38,6 +39,18 @@ export class AgentServices{
         );
 
         return agent;
+    }
+
+    //add site
+    addSite(site:Site): Observable<SiteReponse>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+        })
+        };
+        console.log(site);
+        
+        return this.http.post<SiteReponse>(this.REG_SERVER + "/sites/new", site, httpOptions);
     }
   
 }

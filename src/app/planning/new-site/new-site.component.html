@@ -1,22 +1,22 @@
 <div class="container">
-    <form>
+    <form  [formGroup]="siteForm" (ngSubmit)="onSaveNewASite()">
         
-        <fieldset>
+        <fieldset formGroupName="data_site" >
             <legend>Site d'intervention</legend>
             <div class="row">
                 <div class="col-md-6 col-md-offset-1">
                     <div class="form-group row">
                         <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Nom du site</label>
-                        <input type="text" class="form-control col-md-7" id = "nom" name="nom"/>
+                        <input type="text" class="form-control col-md-7" id = "nom" formControlName="nom"/>
                     </div>
                     <div class="form-group row">
                         <label for="nom_agence" class="col-md-3 col-md-offset-1 col-form-label">Nom agence</label>
-                        <input type="text" id = "nom_agence" class="form-control col-md-7" name="nom_agence"/>
+                        <input type="text" id = "nom_agence" class="form-control col-md-7" formControlName="nom_agence"/>
                     </div>
         
                     <div class="form-group row">
-                        <label for="type" class="col-md-3 col-md-offset-1 col-form-label">Responsable</label>
-                        <input type="text" id = "type"  class="form-control col-md-7" name="type"/>
+                        <label for="responsable" class="col-md-3 col-md-offset-1 col-form-label">Responsable</label>
+                        <input type="text" id = "responsable"  class="form-control col-md-7" forControlName="responsable"/>
                     </div>
                 </div>
 
@@ -24,14 +24,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label for="type" class="col-md-6 col-form-label">Code site</label>
-                                <input type="text" id = "type"  class="form-control col-md-6" name="type"/>
+                                <label for="code_site" class="col-md-6 col-form-label">Code site</label>
+                                <input type="text" id = "code_site"  class="form-control col-md-6" formControlName="code_site"/>
                             </div>
                         </div>  
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label for="nom" class="col-md-6 col-form-label">Couleur</label>
-                                <select name="couleur" id="couleur" class="form-control col-md-6">
+                                <label for="couleur" class="col-md-6 col-form-label">Couleur</label>
+                                <select formControlName="couleur" id="couleur" class="form-control col-md-6">
                                     <option value="#ffffff">Blanc</option>
                                     <option value="#ff0000">Rouge</option>
                                     <option value="#00ff00">vert</option>
@@ -40,12 +40,12 @@
                         </div> 
                     </div>
                     <div class="form-group row">
-                        <label for="type" class="col-md-3 col-md-offset-1 col-form-label">Email</label>
-                        <input type="text" id = "type"  class="form-control col-md-7" name="type"/>
+                        <label for="email" class="col-md-3 col-md-offset-1 col-form-label">Email</label>
+                        <input type="text" id = "email"  class="form-control col-md-7" formControlName="email"/>
                     </div>
                     <div class="form-group row">
-                        <label for="type" class="col-md-3 col-md-offset-1 col-form-label">Tel </label>
-                        <input type="text" id = "type"  class="form-control col-md-7" name="type"/>
+                        <label for="tel" class="col-md-3 col-md-offset-1 col-form-label">Tel </label>
+                        <input type="text" id = "tel"  class="form-control col-md-7" formControlName="tel"/>
                     </div>
                             
                 </div>
@@ -53,29 +53,29 @@
         </fieldset>                 
         
             
-        <fieldset>
+        <fieldset formGroupName="adresse">
             <legend>adresse de Site</legend>
             
             <div class="form-group row">
-                <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Voie</label>
-                <input type="text" class="form-control col-md-7" id = "nom" name="nom" placeholder="N° Rue N° porte, nom de la Rue"/>
+                <label for="voie" class="col-md-3 col-md-offset-1 col-form-label">Voie</label>
+                <input type="text" class="form-control col-md-7" id = "voie" formControlName="voie" placeholder="N° Rue N° porte, nom de la Rue"/>
             </div>
             <div class="form-group row">
-                <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Complement</label>
-                <input type="text" class="form-control col-md-7" id = "nom" name="nom" placeholder="Complement d'adresse"/>
+                <label for="complement" class="col-md-3 col-md-offset-1 col-form-label">Complement</label>
+                <input type="text" class="form-control col-md-7" id = "complement" formControlName="complement" placeholder="Complement d'adresse"/>
             </div>
             <div class="row">
                 <div class="form-group col-md--4 row">
-                    <label for="nom_agence" class="col-md-4 col-md-offset-1 col-form-label">Commune</label>
-                    <input type="text" id = "nom_agence" class="form-control col-md-6" name="nom_agence" placeholder="CP, BP, BL"/>
+                    <label for="commune" class="col-md-4 col-md-offset-1 col-form-label">Commune</label>
+                    <input type="text" id = "commune" class="form-control col-md-6" formControlName="commune" placeholder="CP, BP, BL"/>
                 </div> 
                 <div class="form-group col-md-4 row">
-                    <label for="nom_agence" class="col-md-4 col-md-offset-1 col-form-label">ville</label>
-                    <input type="text" id = "nom_agence" class="form-control col-md-6" name="nom_agence"/>
+                    <label for="ville" class="col-md-4 col-md-offset-1 col-form-label">ville</label>
+                    <input type="text" id = "ville" class="form-control col-md-6" formControlName="ville"/>
                 </div>
                 <div class="form-group col-md-4 row">
-                    <label for="nom_agence" class="col-md-4 col-md-offset-1 col-form-label">Pays</label>
-                    <input type="text" id = "nom_agence" class="form-control col-md-6" name="nom_agence"/>
+                    <label for="pays" class="col-md-4 col-md-offset-1 col-form-label">Pays</label>
+                    <input type="text" id = "pays" class="form-control col-md-6" formControlName="pays"/>
                 </div>
                   
             </div>
@@ -85,8 +85,8 @@
 
         <fieldset>
             <div class="form-group row">
-                <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Nom du Client </label>
-                <input type="text" class="form-control col-md-4 col-md-offset-1" id = "nom" name="nom"/>
+                <label for="nom_client" class="col-md-3 col-md-offset-1 col-form-label">Nom du Client </label>
+                <input type="text" class="form-control col-md-4 col-md-offset-1" id = "nom_client" formControlName="nom_client"/>
                 <button class="btn btn-success col-md-3">Ajouter un nouveau client</button>
             </div>
             
@@ -95,10 +95,10 @@
     
         <div class="row">
             <div class="col-md-6 col-md-offset-6">
-                <button class="btn btn-danger">Annuler</button>
+                <button class="btn btn-danger" type="button">Annuler</button>
             </div>
             <div class="col-md-6 col-md-offset-6">
-                <button class="btn btn-success">Enrégistrer</button>
+                <button class="btn btn-success" [disabled]="siteForm.invalid" type="submit">Enrégistrer</button>
             </div>
         </div>
 
