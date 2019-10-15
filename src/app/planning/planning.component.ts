@@ -21,6 +21,9 @@ export class PlanningComponent implements OnInit {
     this.router.navigate(['/newagent']);
   }
  
+  gotoNewSite(){
+    this.router.navigate(['/newsite']);
+  }
   getListAgent(){
     this.agentservices.getAgents().subscribe((data: Agent[])=>{
       this.listAgent = data;

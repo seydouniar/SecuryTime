@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { PlanningComponent } from './planning/planning.component';
 import { NewAgentComponent } from './planning/new-agent/new-agent.component';
 import { AgentDetailsComponent } from './planning/agent-details/agent-details.component';
+import { NewSiteComponent } from './planning/new-site/new-site.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'planning', component: PlanningComponent},
   { path: 'inscription', component: NewCompteComponent},
   { path: 'newagent', component: NewAgentComponent},
+  { path: 'newsite', component: NewSiteComponent},
   { path: 'agent-details/:id', component:AgentDetailsComponent},
   { path: '', redirectTo:'home', pathMatch:'full'},
   { path: '**', redirectTo: 'home'}

@@ -1,0 +1,106 @@
+<div class="container">
+    <form>
+        
+        <fieldset>
+            <legend>Site d'intervention</legend>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    <div class="form-group row">
+                        <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Nom du site</label>
+                        <input type="text" class="form-control col-md-7" id = "nom" name="nom"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nom_agence" class="col-md-3 col-md-offset-1 col-form-label">Nom agence</label>
+                        <input type="text" id = "nom_agence" class="form-control col-md-7" name="nom_agence"/>
+                    </div>
+        
+                    <div class="form-group row">
+                        <label for="type" class="col-md-3 col-md-offset-1 col-form-label">Responsable</label>
+                        <input type="text" id = "type"  class="form-control col-md-7" name="type"/>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label for="type" class="col-md-6 col-form-label">Code site</label>
+                                <input type="text" id = "type"  class="form-control col-md-6" name="type"/>
+                            </div>
+                        </div>  
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label for="nom" class="col-md-6 col-form-label">Couleur</label>
+                                <select name="couleur" id="couleur" class="form-control col-md-6">
+                                    <option value="#ffffff">Blanc</option>
+                                    <option value="#ff0000">Rouge</option>
+                                    <option value="#00ff00">vert</option>
+                                </select>  
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="form-group row">
+                        <label for="type" class="col-md-3 col-md-offset-1 col-form-label">Email</label>
+                        <input type="text" id = "type"  class="form-control col-md-7" name="type"/>
+                    </div>
+                    <div class="form-group row">
+                        <label for="type" class="col-md-3 col-md-offset-1 col-form-label">Tel </label>
+                        <input type="text" id = "type"  class="form-control col-md-7" name="type"/>
+                    </div>
+                            
+                </div>
+            </div>    
+        </fieldset>                 
+        
+            
+        <fieldset>
+            <legend>adresse de Site</legend>
+            
+            <div class="form-group row">
+                <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Voie</label>
+                <input type="text" class="form-control col-md-7" id = "nom" name="nom" placeholder="N° Rue N° porte, nom de la Rue"/>
+            </div>
+            <div class="form-group row">
+                <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Complement</label>
+                <input type="text" class="form-control col-md-7" id = "nom" name="nom" placeholder="Complement d'adresse"/>
+            </div>
+            <div class="row">
+                <div class="form-group col-md--4 row">
+                    <label for="nom_agence" class="col-md-4 col-md-offset-1 col-form-label">Commune</label>
+                    <input type="text" id = "nom_agence" class="form-control col-md-6" name="nom_agence" placeholder="CP, BP, BL"/>
+                </div> 
+                <div class="form-group col-md-4 row">
+                    <label for="nom_agence" class="col-md-4 col-md-offset-1 col-form-label">ville</label>
+                    <input type="text" id = "nom_agence" class="form-control col-md-6" name="nom_agence"/>
+                </div>
+                <div class="form-group col-md-4 row">
+                    <label for="nom_agence" class="col-md-4 col-md-offset-1 col-form-label">Pays</label>
+                    <input type="text" id = "nom_agence" class="form-control col-md-6" name="nom_agence"/>
+                </div>
+                  
+            </div>
+            
+        </fieldset>
+        
+
+        <fieldset>
+            <div class="form-group row">
+                <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Nom du Client </label>
+                <input type="text" class="form-control col-md-4 col-md-offset-1" id = "nom" name="nom"/>
+                <button class="btn btn-success col-md-3">Ajouter un nouveau client</button>
+            </div>
+            
+        </fieldset> 
+                                    
+    
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+                <button class="btn btn-danger">Annuler</button>
+            </div>
+            <div class="col-md-6 col-md-offset-6">
+                <button class="btn btn-success">Enrégistrer</button>
+            </div>
+        </div>
+
+    </form>
+</div>
