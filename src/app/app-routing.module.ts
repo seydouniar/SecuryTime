@@ -12,6 +12,8 @@ import { PlanningComponent } from './planning/planning.component';
 import { NewAgentComponent } from './planning/new-agent/new-agent.component';
 import { AgentDetailsComponent } from './planning/agent-details/agent-details.component';
 import { NewSiteComponent } from './planning/new-site/new-site.component';
+import { SiteListComponent } from './planning/site-list/site-list.component';
+import { AgentListComponent } from './planning/agent-list/agent-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,11 +22,16 @@ const routes: Routes = [
   { path: 'facturation', canActivate: [GuardService],component: FacturationComponent},
   { path: 'agences', canActivate: [GuardService],component: AgencesComponent},
   { path: 'connexion', component: AuthComponent},
-  { path: 'planning', component: PlanningComponent},
+  { path: 'planning', component: PlanningComponent,children:[
+    { path: 'les-sites', component: SiteListComponent},
+    { path: 'les-agent', component: AgentListComponent},
+    { path: 'agent-details/:id', component:AgentDetailsComponent}
+  ]},
   { path: 'inscription', component: NewCompteComponent},
   { path: 'newagent', component: NewAgentComponent},
   { path: 'newsite', component: NewSiteComponent},
-  { path: 'agent-details/:id', component:AgentDetailsComponent},
+  
+  
   { path: '', redirectTo:'home', pathMatch:'full'},
   { path: '**', redirectTo: 'home'}
 ];

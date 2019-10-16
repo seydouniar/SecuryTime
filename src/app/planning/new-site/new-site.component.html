@@ -16,7 +16,7 @@
         
                     <div class="form-group row">
                         <label for="responsable" class="col-md-3 col-md-offset-1 col-form-label">Responsable</label>
-                        <input type="text" id = "responsable"  class="form-control col-md-7" forControlName="responsable"/>
+                        <input type="text" id = "responsable"  class="form-control col-md-7" formControlName="responsable"/>
                     </div>
                 </div>
 
@@ -85,21 +85,78 @@
 
         <fieldset>
             <div class="form-group row">
-                <label for="nom_client" class="col-md-3 col-md-offset-1 col-form-label">Nom du Client </label>
-                <input type="text" class="form-control col-md-4 col-md-offset-1" id = "nom_client" formControlName="nom_client"/>
-                <button class="btn btn-success col-md-3">Ajouter un nouveau client</button>
+                <label for="id_client" class="col-md-3  col-form-label">Nom du Client </label>
+                <select class="form-control col-md-3" id = "id_client" formControlName="id_client">
+                    <option *ngFor="let client of clients" [value]="client.id">{{client.client_data.nom}}</option>
+                </select>
+    
+                <button class="btn btn-primary col-md-3 offset-md-3" type="button" data-toggle="modal" data-target="#clientModal">Nouveau client</button>
+
+                <!-- The Modal -->
+                <div class="modal" id="clientModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                    
+                            <!-- Modal Header -->
+                    
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form [formGroup]="clientForm" (ngSubmit)="onAddClient()">
+                                    <fieldset>
+                                        <legend>Client</legend>
+                                        <input type="text" formControlName="nom" class="form-control" placeholder="Nom du client" id="nom">
+                                        <input type="text" class="form-control" placeholder="code facture" formControlName="code_facture">
+                                    </fieldset>
+                                    
+                                    <fieldset formGroupName="adresse" id="adresse">
+                                        <legend>Adresse</legend>
+                                        <input type="text" class="form-control" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.rue.errors }" formControlName="rue" placeholder="N° Rue N° porte" id="rue">
+                                        <input type="text" class="form-control" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.code_postale.errors }"
+                                        formControlName="code_postale" placeholder="Code Postale" id="code_postale">
+                                        <input type="text" class="form-control" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
+                                        formControlName="ville" placeholder="ville" id="ville">
+                                        <input type="text" class="form-control" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.pays.errors }"
+                                        formControlName="pays" placeholder="Pays" id="pays">
+                                    </fieldset>
+
+                                    <fieldset formGroupName="contacts" id="contacts">
+                                        <legend>Contacts</legend>
+                                        <input type="text" class="form-control" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        formControlName="email" placeholder="adresse email" id="email">
+                                        <input type="tel" class="form-control" placeholder="Mobile(75-63-45-42)"
+                                        [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"    
+                                         formControlName="mobile" id="mobile">
+                                        <input type="tel" class="form-control" formControlName="fixe" placeholder="fixe (72-25-78-56)"
+                                        [ngClass]="{ 'is-invalid': submitted && f.fixe.errors }"
+                                         id="fixe">
+                                    </fieldset>
+                                    <div class="row">
+                                        <button type="button" class="btn btn-danger col-md-4" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-success col-md-4 offset-md-4" [disabled]="clientForm.invalid" type="submit">Valider</button>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                    
+                            <!-- Modal footer -->
+                            
+                    
+                        </div>
+                        </div>
+                    </div>
             </div>
             
         </fieldset> 
                                     
     
         <div class="row">
-            <div class="col-md-6 col-md-offset-6">
-                <button class="btn btn-danger" type="button">Annuler</button>
-            </div>
-            <div class="col-md-6 col-md-offset-6">
-                <button class="btn btn-success" [disabled]="siteForm.invalid" type="submit">Enrégistrer</button>
-            </div>
+            <button class="btn btn-danger col-md-4" type="button">Annuler</button>
+            <button class="btn btn-success col-md-4 offset-md-4" type="submit" [disabled]="siteForm.invalid">Enrégistrer</button>  
         </div>
 
     </form>

@@ -1,0 +1,31 @@
+<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>Nom</th>
+        <th>adresse</th>
+        <th>cp</th>
+        <th>ville</th>
+        <th>pays</th>
+        <th>email</th>
+        <th>mobile</th>
+        <th>fixe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agent of listAgent;let i =index" >
+        <td nowrap>{{agent.matricule}}</td>
+        <td nowrap>{{agent.nom}}</td>
+        <td nowrap>{{agent.adresse.rue}}</td>
+        <td nowrap>{{agent.adresse.code_postale}}</td>
+        <td nowrap>{{agent.adresse.ville}}</td>
+        <td nowrap>{{agent.adresse.pays}}</td>
+        <td nowrap>{{agent.contacts.email}}</td>
+        <td nowrap>{{agent.contacts.mobile}}</td>
+        <td nowrap>{{agent.contacts.fixe}}</td>
+      </tr>
+      
+    </tbody>
+
+
+  </table>

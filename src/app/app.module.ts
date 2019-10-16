@@ -27,6 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NewSiteComponent } from './planning/new-site/new-site.component';
+import { SiteListComponent } from './planning/site-list/site-list.component';
+import { AgentListComponent } from './planning/agent-list/agent-list.component';
+import { NewClientComponent } from './planning/new-client/new-client.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { NewSiteComponent } from './planning/new-site/new-site.component';
     NewAgentComponent,
     AgentDetailsComponent,
     NewSiteComponent,
+    SiteListComponent,
+    AgentListComponent,
+    NewClientComponent,
   ],
   imports: [
     BrowserModule,

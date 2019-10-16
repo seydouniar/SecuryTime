@@ -1,0 +1,30 @@
+<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Code Site</th>
+        <th>Nom</th>
+        <th>Responsable</th>
+        <th>adresse</th>
+        <th>cp</th>
+        <th>ville</th>
+        <th>pays</th>
+        <th>email</th>
+        <th>Tel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let site of listSites;let i =index">
+        <td nowrap>{{site.dataSite.code_site}}</td>
+        <td nowrap>{{site.dataSite.nom}}</td>
+        <td nowrap>{{site.dataSite.responsable}}</td>
+        <td nowrap>{{site.adresse.voie}}</td>
+        <td nowrap>{{site.adresse.commune}}</td>
+        <td nowrap>{{site.adresse.ville}}</td>
+        <td nowrap>{{site.adresse.pays}}</td>
+        <td nowrap>{{site.dataSite.email}}</td>
+        <td nowrap>{{site.dataSite.tel}}</td>  
+      </tr>
+    </tbody>
+
+
+  </table>

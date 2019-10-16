@@ -8,11 +8,12 @@ import { Agent } from "../modeles/agent";
   styleUrls: ['./planning.component.scss']
 })
 export class PlanningComponent implements OnInit {
-  listAgent: Agent[];
-  constructor(private router: Router,private agentservices:AgentServices) { }
+  
+  isSiteShow: boolean = false;
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.getListAgent();
+    this.router.navigate(['/planning/les-agent'])
   }
 
 
@@ -24,15 +25,14 @@ export class PlanningComponent implements OnInit {
   gotoNewSite(){
     this.router.navigate(['/newsite']);
   }
-  getListAgent(){
-    this.agentservices.getAgents().subscribe((data: Agent[])=>{
-      this.listAgent = data;
-      console.log(data);
-      
-    })
-  }
-
-  getAgentInfo(i: number){
-    this.router.navigate(['/agent-details',this.listAgent[i].id]);
+  
+  switchSiteAgents(){
+    if(this.isSiteShow){
+      this.isSiteShow = false;
+      this.router.navigate(['/planning/les-agent'])
+    }else{
+      this.isSiteShow = true;
+      this.router.navigate(['/planning/les-sites'])
+    }
   }
 }
