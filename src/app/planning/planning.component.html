@@ -1,12 +1,32 @@
-    <div class="row">
-      <button class="btn btn-primary col-md-3" (click)= "gotoNewSite()">Ajouter un Site</button>
-      <button class="btn btn-success col-md-3" (click)= "gotoNewAgent()">Ajouter un agent</button>
-      <button class="btn btn-primary col-md-3 offset-md-3" *ngIf="isSiteShow" (click)= "switchSiteAgents()">Afficher les agents</button> 
-      <button class="btn btn-primary col-md-3 offset-md-3" *ngIf="!isSiteShow" (click)= "switchSiteAgents()">Afficher les sites</button> 
+
+    <div class="jumbotron text-center">
+      <h1>Planning</h1>
     </div>
-    
-    <div class="container">
-      <h3 *ngIf="!isSiteShow">La liste des agents</h3>
-      <h3 *ngIf="isSiteShow">La liste des sites</h3>
-      <router-outlet></router-outlet>
+
+    <div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-3 sidenav">
+          <button class="btn btn-primary" *ngIf="isSiteShow" (click)="switchSiteAgents()">Afficher
+            les agents</button>
+          <button class="btn btn-primary" *ngIf="!isSiteShow" (click)="switchSiteAgents()">Afficher
+            les sites</button>
+          <form class="form-inline">
+            <input class="form-control" type="text" placeholder="Search">
+          </form>
+          <ul *ngIf="isSiteShow" class="list-group text-center">
+            <li class="list-group-item" *ngFor="let site of listSites">{{site.dataSite.nom}}</li>
+          </ul>
+
+          <ul *ngIf="!isSiteShow" class="list-group text-center" >
+            <li class="list-group-item" *ngFor="let agent of listAgent">{{agent.nom}}</li>
+          </ul>
+
+        </div>
+
+
+        <div class="col-sm-9">
+          <!-- <router-outlet></router-outlet> -->
+          <app-calendar [agents]="listAgent"></app-calendar>
+        </div>
+      </div>
     </div>

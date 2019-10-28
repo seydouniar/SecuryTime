@@ -1,6 +1,23 @@
 tbody{
     font-size: 0.7em;
 }
-button {
-    margin: 2px auto !important;
+button,input {
+    width: inherit;
+    margin: 5px auto !important;
+}
+ 
+.sidenav {
+  position: relative;
+  height: 600px;
+  padding-top: 3%;
+}
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+
+  .row.content {
+    height: auto;
+  }
 }

@@ -24,12 +24,13 @@ import { NewAgentComponent } from './planning/new-agent/new-agent.component';
 import { AgentServices } from './services/agent.service';
 import { AgentDetailsComponent } from './planning/agent-details/agent-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NewSiteComponent } from './planning/new-site/new-site.component';
 import { SiteListComponent } from './planning/site-list/site-list.component';
 import { AgentListComponent } from './planning/agent-list/agent-list.component';
 import { NewClientComponent } from './planning/new-client/new-client.component';
+import { CalendarComponent } from './planning/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+import { EventServices } from './services/event.services';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { NewClientComponent } from './planning/new-client/new-client.component';
     SiteListComponent,
     AgentListComponent,
     NewClientComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,15 +60,13 @@ import { NewClientComponent } from './planning/new-client/new-client.component';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    })
+    FullCalendarModule
   ],
   providers: [
     AuthService,
     GuardService,
-    AgentServices
+    AgentServices,
+    EventServices
   ],
   bootstrap: [AppComponent]
 })
