@@ -22,13 +22,22 @@
         </div>
         <div class="modal-body">
           <form [formGroup]="serviceForm" (ngSubmit)="addEvent()">
-            <div class="form-group">
-              <select class="form-control">
+            <div class="form-group row">
+              <label for="agent" class="col-md-2 col-form-label">Agent</label>
+              <select class="form-control col-md-8" formControlName="agent">
                 <option *ngFor="let item of agents" [value]="item.id">{{item.nom}}</option>
               </select>
             </div>
             <div class="form-group row">
-              <label for="" class="col-md-2 col-form-label">Debut</label>
+                <label for="site" class="col-md-2 col-form-label">Site</label>
+              <select class="form-control col-md-8" formControlName="site">
+                <option *ngFor="let item of sites" [value]="item.id">{{item.dataSite.nom}}</option>
+              </select>
+            </div>
+              
+  
+            <div class="form-group row">
+              <label for="djour" class="col-md-2 col-form-label">Debut</label>
               <input class="form-control col-md-5" type="date" formControlName="djour" id="djour">
               <input class="form-control col-md-4 offset-md-1" type="time" formControlName="dheure" id="dheure">
             </div>

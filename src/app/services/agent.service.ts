@@ -4,10 +4,13 @@ import { Agent, AgentReponse } from '../modeles/agent';
 import { Observable, Subject } from 'rxjs';
 import { Site, SiteReponse } from '../modeles/site';
 import { Client, ClientResponse } from '../modeles/client';
+import { resolve } from 'url';
 @Injectable()
 export class AgentServices{
-    private listAgent: Agent[];
+    private listAgent: Agent[]=[];
+    private siteList: Site[] = []
     agentSubject = new Subject<Agent[]>();
+    siteSubject = new Subject<Site[]>();
 
     REG_SERVER = "http://localhost:3003";
 
@@ -15,7 +18,10 @@ export class AgentServices{
 
     }
     emitAgents(){
-        this.agentSubject.next(this.listAgent);
+        this.agentSubject.next(this.listAgent.slice());
+    }
+    emitSite(){
+        this.siteSubject.next(this.siteList.slice());
     }
     Ajouter(agent: Agent): Observable <AgentReponse> {
         const httpOptions = {
@@ -28,7 +34,14 @@ export class AgentServices{
         return this.http.post<AgentReponse>(this.REG_SERVER + "/agents/new", agent, httpOptions);
     }
     getAgents(){
-        return this.http.get<Agent[]>(this.REG_SERVER+'/agents')
+        return new Promise((resolve,reject)=>{
+            this.http.get<Agent[]>(this.REG_SERVER+'/agents').toPromise().then((data: Agent[])=>{
+               this.listAgent = data
+               this.emitAgents();
+               resolve(this.listAgent)
+            }).catch(err=>reject(err))
+
+        })
     }
    
 
@@ -42,6 +55,15 @@ export class AgentServices{
         return agent;
     }
 
+    getSiteById(id: number) {
+        const site = this.siteList.find(
+            (s)=>{
+                return s.id === id;
+            }
+        );
+
+        return site;
+    }
     //add site
     addSite(site:Site): Observable<SiteReponse>{
         const httpOptions = {
@@ -55,7 +77,13 @@ export class AgentServices{
     }
 
     getSites() {
-        return this.http.get<Site[]>(this.REG_SERVER+'/sites')
+        return new Promise((resolve,reject)=>{
+            this.http.get<Site[]>(this.REG_SERVER+'/sites').toPromise().then(data=>{
+                this.siteList = data
+                this.emitSite()
+                resolve(this.siteList)
+            }).catch(err=>reject(err))
+        })
     }
 
     getClient(){
