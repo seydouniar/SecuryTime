@@ -27,6 +27,7 @@ export class CalendarComponent implements OnInit,OnDestroy {
   @Input() agents: Agent[];
   @Input() sites: Site[];
   events=[];
+  options: any;
   eventSubcription: Subscription;
   serviceForm: FormGroup;
   calendarPlugins = [interactionPlugin,dayGridPlugin, timeGrigPlugin, listPlugin]; // important!
@@ -42,6 +43,18 @@ export class CalendarComponent implements OnInit,OnDestroy {
     this.eventSubcription = this.eventServices.eventSubject.subscribe((data)=>{
       this.events = data
     })
+    this.options = {
+      editable: true,
+      theme: 'standart', // default view, may be bootstrap
+      header: {
+        left: 'prev,next today myCustomButton',
+        center: 'title',
+        right: 'dayGridMonth,timeGridMonth,timeGridWeek,timeGridDay,listMonth'
+      },
+      locales:[frLocale],
+      // add other plugins
+      plugins: [interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]
+    };
     this.initForm();
     this.getEvents()
 
@@ -58,14 +71,8 @@ export class CalendarComponent implements OnInit,OnDestroy {
   ngAfterViewInit() {
     let calendarApi = this.calendarComponent.getApi();
     calendarApi.render();
-    calendarApi.getAvailableLocaleCodes().forEach(localcode=>{
-      localcode='fr'
-    })
-    calendarApi.setOption('editable',true)
-    calendarApi.setOption('navlink',true)
-    // call a method on the Calendar object
-    calendarApi.setOption('locale','fr')
-    
+  
+    // call a method on the Calendar obje
   }
   initForm(){
     this.serviceForm = this.formBuilder.group({

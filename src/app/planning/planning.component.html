@@ -5,7 +5,7 @@
 
     <div class="container-fluid">
       <div class="row content">
-        <div class="col-sm-3 sidenav">
+        <div class="col-md-3 sidenav">
           <button class="btn btn-primary" *ngIf="isSiteShow" (click)="switchSiteAgents()">Afficher
             les agents</button>
           <button class="btn btn-primary" *ngIf="!isSiteShow" (click)="switchSiteAgents()">Afficher
@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="col-sm-9">
+        <div class="col-md-9">
           <!-- <router-outlet></router-outlet> -->
           <app-calendar [agents]="listAgent" [sites]="listSites"></app-calendar>
         </div>

@@ -5,9 +5,10 @@
     data-toggle="modal" data-target="#serviceModale">Ajouter un service</button>
   </div>
   <div class="calendar">
-    <full-calendar #calendar [events]="[]" 
-    [header]="header"
-    (dateClick)="handleDateClick($event)" [plugins]="calendarPlugins" [locales]="locales">
+    <full-calendar #calendar [events]="[]" *ngIf="options"
+    [header]="options.header" [locales]="options.locales"
+    [editable]="true"
+    (dateClick)="handleDateClick($event)" [plugins]="options.plugins" [locales]="locales">
     </full-calendar>
   </div>
 
