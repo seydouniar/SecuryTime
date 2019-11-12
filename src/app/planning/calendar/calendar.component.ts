@@ -12,6 +12,7 @@ import { Site } from 'src/app/modeles/site';
 import { EventServices } from 'src/app/services/event.services';
 import { Event } from 'src/app/modeles/event';
 import { Subscription } from 'rxjs';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-calendar',
@@ -29,17 +30,20 @@ export class CalendarComponent implements OnInit,OnDestroy {
   @Input() sites: Site[];
   events=[];
   options: any;
+  closeResult: string;
+
   eventSubcription: Subscription;
   serviceForm: FormGroup;
   calendarPlugins = [interactionPlugin,dayGridPlugin, timeGrigPlugin, listPlugin]; // important!
   isModalShow: boolean = false;
   isSiteShow: boolean = false;
+  day;
   header = {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridMonth,timeGridWeek,timeGridDay,listMonth',
           }
-  constructor(private formBuilder: FormBuilder,private eventServices: EventServices) { }
+  constructor(private formBuilder: FormBuilder,private eventServices: EventServices,private modalService: NgbModal) { }
 
   ngOnInit(){
     this.eventSubcription = this.eventServices.eventSubject.subscribe((data)=>{
@@ -62,6 +66,29 @@ export class CalendarComponent implements OnInit,OnDestroy {
     this.initForm();
     this.getEvents()
 
+  }
+
+  open(content,ev=null) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+    if(ev){
+      this.day = ev.dateStr
+      console.log(ev.dateStr);
+      
+    }
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
   ngOnDestroy(){
