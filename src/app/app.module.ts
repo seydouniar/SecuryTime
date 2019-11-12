@@ -31,6 +31,7 @@ import { NewClientComponent } from './planning/new-client/new-client.component';
 import { CalendarComponent } from './planning/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 import { EventServices } from './services/event.services';
+import { PlanningHomeComponent } from './planning/planning-home/planning-home.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { EventServices } from './services/event.services';
     AgentListComponent,
     NewClientComponent,
     CalendarComponent,
+    PlanningHomeComponent,
   ],
   imports: [
     BrowserModule,

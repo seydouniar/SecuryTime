@@ -1,0 +1,44 @@
+<div class="caroussel-planning">
+    <ngb-carousel [interval]="2000" (click)="gotoCalendar()">
+        <ng-template ngbSlide *ngFor = "let i of [1,2]">
+            <div class="picsum-img-wrapper">
+                <img src="../assets/planning/im{{i}}.png" style="width:100%" alt="Random first slide">
+            </div>
+            
+            <div class="carousel-caption">
+                <h2>planning</h2>
+                <p>Faire votre planning</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+
+    <h3 class="text-divider"><span>site</span></h3>
+
+    <ngb-carousel [interval]="2000" (click)="gotoCalendar()">
+            <ng-template ngbSlide *ngFor = "let i of [1,2]">
+                <div class="picsum-img-wrapper">
+                    <img src="../assets/planning/im{{i}}.png" style="width:100%" alt="Random first slide">
+                </div>
+                
+                <div class="carousel-caption">
+                    <h2>planning</h2>
+                    <p>Faire votre planning</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+
+        <h3 class="text-divider"><span>agent</span></h3>
+
+        <ngb-carousel [interval]="2000" (click)="gotoCalendar()">
+                <ng-template ngbSlide *ngFor = "let i of [1,2]">
+                    <div class="picsum-img-wrapper">
+                        <img src="../assets/planning/im{{i}}.png" style="width:100%" alt="Random first slide">
+                    </div>
+                    
+                    <div class="carousel-caption">
+                        <h2>planning</h2>
+                        <p>Faire votre planning</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+</div>

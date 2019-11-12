@@ -4,29 +4,5 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row content">
-        <div class="col-md-3 sidenav">
-          <button class="btn btn-primary" *ngIf="isSiteShow" (click)="switchSiteAgents()">Afficher
-            les agents</button>
-          <button class="btn btn-primary" *ngIf="!isSiteShow" (click)="switchSiteAgents()">Afficher
-            les sites</button>
-          <form class="form-inline">
-            <input class="form-control" type="text" placeholder="Search">
-          </form>
-          <ul *ngIf="isSiteShow" class="list-group text-center">
-            <li class="list-group-item" *ngFor="let site of listSites">{{site.dataSite.nom}}</li>
-          </ul>
-
-          <ul *ngIf="!isSiteShow" class="list-group text-center" >
-            <li class="list-group-item" *ngFor="let agent of listAgent">{{agent.nom}}</li>
-          </ul>
-
-        </div>
-
-
-        <div class="col-md-9">
-          <!-- <router-outlet></router-outlet> -->
-          <app-calendar [agents]="listAgent" [sites]="listSites"></app-calendar>
-        </div>
-      </div>
+        <router-outlet></router-outlet>
     </div>

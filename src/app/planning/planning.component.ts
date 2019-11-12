@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgentServices } from '../services/agent.service';
 import { Agent } from "../modeles/agent";
@@ -6,6 +6,7 @@ import { Site } from '../modeles/site';
 import { EventServices } from '../services/event.services';
 import { Subscription } from 'rxjs';
 import { Event } from '../modeles/event';
+import { Draggable } from '@fullcalendar/interaction';
 @Component({
   selector: 'app-planning',
   templateUrl: './planning.component.html',
@@ -14,10 +15,11 @@ import { Event } from '../modeles/event';
 export class PlanningComponent implements OnInit,OnDestroy {
   listSites: Site[];
   listAgent: Agent[];
-  angentSubscription: Subscription
-  siteSubscription: Subscription
+  angentSubscription: Subscription;
+  siteSubscription: Subscription;
 
-  isSiteShow: boolean = false;
+
+  
   constructor(private router: Router, private eventServices: EventServices,
     private agentServices: AgentServices) { }
 
@@ -36,9 +38,11 @@ export class PlanningComponent implements OnInit,OnDestroy {
     this.getAllSites();
     this.getListAgent();
     this.getEvents();
+
+    
   }
 
-
+ 
   ngOnDestroy(){
     this.angentSubscription.unsubscribe();
     this.siteSubscription.unsubscribe();
@@ -52,19 +56,14 @@ export class PlanningComponent implements OnInit,OnDestroy {
     this.router.navigate(['/newsite']);
   }
   
-  switchSiteAgents(){
-    if(this.isSiteShow){
-      this.isSiteShow = false;
-    }else{
-      this.isSiteShow = true;
-    }
+  gotoCalendar(){
+    this.router.navigate(['/planning/calendar'])
   }
+  
 
   getAllSites(){
     this.agentServices.getSites().then((data: Site[])=>{
       this.listSites = data
-      console.log(this.listSites);
-      
     }).catch(err=>console.log(err)
     )
   }
@@ -72,7 +71,6 @@ export class PlanningComponent implements OnInit,OnDestroy {
   getListAgent() {
     this.agentServices.getAgents().then((data: Agent[]) => {
       this.listAgent = data;
-      console.log(data);
 
     }).catch(err=>console.log(err)
     )
@@ -80,7 +78,6 @@ export class PlanningComponent implements OnInit,OnDestroy {
 
   getEvents(){
     this.eventServices.getEvents().then((data:Event[])=>{
-      console.log(data);
     }).catch(err=>console.log(err))
   }
 }

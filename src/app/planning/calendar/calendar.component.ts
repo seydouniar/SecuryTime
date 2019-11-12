@@ -3,7 +3,7 @@ import { Calendar } from '@fullcalendar/core';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGrigPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -23,6 +23,7 @@ export class CalendarComponent implements OnInit,OnDestroy {
   
   @ViewChild('calendar',{static: false}) calendarComponent: FullCalendarComponent; // the #calendar in the template
   @ViewChild('serviceModale', { static: false }) modal: ElementRef; // the #calendar in the template
+  @ViewChild('external',{static:false,read:ElementRef}) external: ElementRef;
 
   @Input() agents: Agent[];
   @Input() sites: Site[];
@@ -32,6 +33,7 @@ export class CalendarComponent implements OnInit,OnDestroy {
   serviceForm: FormGroup;
   calendarPlugins = [interactionPlugin,dayGridPlugin, timeGrigPlugin, listPlugin]; // important!
   isModalShow: boolean = false;
+  isSiteShow: boolean = false;
   header = {
         left: 'prev,next today',
         center: 'title',
@@ -55,6 +57,8 @@ export class CalendarComponent implements OnInit,OnDestroy {
       // add other plugins
       plugins: [interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]
     };
+
+    
     this.initForm();
     this.getEvents()
 
@@ -64,16 +68,65 @@ export class CalendarComponent implements OnInit,OnDestroy {
     this.eventSubcription.unsubscribe()
   }
   
+  ngAfterViewInit() {
+    let calendarApi = this.calendarComponent.getApi();
+    calendarApi.render();
+
+    new Draggable(this.external.nativeElement,{
+      itemSelector:'.fc-event',
+      eventData: (event1)=>{
+        return {
+          title: event1.innerText
+        }
+      }
+    });
+  }
+
+  switchSiteAgents(){
+    if(this.isSiteShow){
+      this.isSiteShow = false;
+    }else{
+      this.isSiteShow = true;
+    }
+  }
+  //calendar events
   handleDateClick(arg) { // handler method
     console.log(arg.dateStr);
   }
 
-  ngAfterViewInit() {
-    let calendarApi = this.calendarComponent.getApi();
-    calendarApi.render();
-  
-    // call a method on the Calendar obje
+  //event click
+  eventClick(ev){
+    console.log(ev);
+    
   }
+
+  dateClick(ev){
+    console.log(ev);
+    
+  }
+
+  updatHeader(){
+
+  }
+
+  updateEvent(){
+
+  }
+
+  eventDragStop(){
+
+  }
+
+  dayRender(ev){
+    if(ev.e1){
+      ev.e1.addEventListener('dblclick',()=>{
+      alert('double click')
+    });
+    }
+    
+  }
+
+  
   initForm(){
     this.serviceForm = this.formBuilder.group({
       djour:['',Validators.required],
@@ -84,29 +137,26 @@ export class CalendarComponent implements OnInit,OnDestroy {
       site: ['',Validators.required]
     })
   }
+
+  //from service
   addEvent(){
     const formValue = this.serviceForm.value;
     const d = formValue['djour'] + 'T'+formValue['dheure']+':00';
     const f = formValue['fjour'] + 'T' + formValue['fheure'] + ':00';
     const event = new Event(formValue['agent'],formValue['site'], d, f);
     this.eventServices.addEvent(event).then((data)=>{
-      console.log(data);
-    }).catch(err=>{console.log(err)
+      }).catch(err=>{console.log(err)
     })
-    console.log(formValue);
     this.serviceForm.reset();
     
   }
 
   getEvents(){
-    this.eventServices.getEvents().then((data:Event[])=>{
-      console.log(data);
-      
+    this.eventServices.getEvents().then((data:Event[])=>{      
       data.forEach(elt=>{
         const d = new Date (elt.debut)
         const f = new Date(elt.fin)
        
-
         if (!isNaN(d.valueOf()) && !isNaN(f.valueOf())){
           const  event = ({
             title: elt.agent.nom + " - "+elt.site.dataSite.nom,

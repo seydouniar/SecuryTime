@@ -15,6 +15,7 @@ import { NewSiteComponent } from './planning/new-site/new-site.component';
 import { SiteListComponent } from './planning/site-list/site-list.component';
 import { AgentListComponent } from './planning/agent-list/agent-list.component';
 import { CalendarComponent } from './planning/calendar/calendar.component';
+import { PlanningHomeComponent } from './planning/planning-home/planning-home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,7 +28,11 @@ const routes: Routes = [
     { path: 'les-sites', component: SiteListComponent},
     { path: 'les-agent', component: AgentListComponent},
     { path: 'agent-details/:id', component:AgentDetailsComponent},
-    { path: 'calendar', component: CalendarComponent }
+    { path: 'calendar', component: CalendarComponent },
+    { path: 'acceuil',component:PlanningHomeComponent},
+    { path: '',redirectTo:'acceuil',pathMatch:'full'},
+    { path: '**',redirectTo:'acceuil'},
+
   ]},
   { path: 'inscription', component: NewCompteComponent},
   { path: 'newagent', component: NewAgentComponent},

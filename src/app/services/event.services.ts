@@ -23,8 +23,6 @@ export class EventServices{
             this.http.get<any[]>(this.REG_SERVER+"/events").toPromise().then(
                 (data)=>{
                     this.eventList=[]
-                    console.log(data);
-                    
                     data.forEach(val=>{
                         let event= new Event(
                             this.agentServices.getAgentById(val.id_agent),
