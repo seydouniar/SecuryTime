@@ -1,6 +1,6 @@
 export class Event{
     
-    constructor(public agent, public site, public debut: string, public fin: string){
+    constructor( public debut: string, public fin: string,public site?,public agent?, public id?){
         
     }
 }

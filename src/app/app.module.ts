@@ -20,18 +20,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanningComponent } from './planning/planning.component';
 import { PriseServiceComponent } from './prise-service/prise-service.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NewAgentComponent } from './planning/new-agent/new-agent.component';
+import { NewAgentComponent } from './new-agent/new-agent.component';
 import { AgentServices } from './services/agent.service';
-import { AgentDetailsComponent } from './planning/agent-details/agent-details.component';
+import { AgentDetailsComponent } from './agent-details/agent-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NewSiteComponent } from './planning/new-site/new-site.component';
-import { SiteListComponent } from './planning/site-list/site-list.component';
-import { AgentListComponent } from './planning/agent-list/agent-list.component';
-import { NewClientComponent } from './planning/new-client/new-client.component';
+import { NewSiteComponent } from './new-site/new-site.component';
+import { SiteListComponent } from './site-list/site-list.component';
+import { AgentListComponent } from './agent-list/agent-list.component';
+import { NewClientComponent } from './new-client/new-client.component';
 import { CalendarComponent } from './planning/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 import { EventServices } from './services/event.services';
 import { PlanningHomeComponent } from './planning/planning-home/planning-home.component';
+import { AgentPlanningComponent } from './planning/agent-planning/agent-planning.component';
+import { SitePlanningComponent } from './planning/site-planning/site-planning.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { PlanningHomeComponent } from './planning/planning-home/planning-home.co
     NewClientComponent,
     CalendarComponent,
     PlanningHomeComponent,
+    AgentPlanningComponent,
+    SitePlanningComponent,
   ],
   imports: [
     BrowserModule,

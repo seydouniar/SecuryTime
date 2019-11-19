@@ -1,26 +1,28 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container-fluid">
+<div class="head-site">
   <br>
   <h3>SecuryTime</h3>
   <p> <strong>tel:</strong> 0752825307 </p>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <!-- Brand -->
-  <a class="navbar-brand" routerLink="">SecuryTime</a>
+  
 
   <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <button class="navbar-toggler" type="button" (click)="toggleCollapse()" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <!-- Brand -->
+  <a class="navbar-brand" routerLink="">SecuryTime</a>
+
   <!-- Navbar links -->
-  <div class="collapse navbar-collapse container-fluid" id="collapsibleNavbar">
-    <ul class="nav navbar-nav">
+  <div class="collapse navbar-collapse" [class.show]="show" id="collapsibleNavbar">
+    <ul class="nav navbar-nav mr-auto">
       
       <li class="nav-item dropdown">
-        <a data-toggle="collapse" class="nav-link dropbtn"
-          routerLink="intervention">Interventions</a>
+        <a data-toggle="collapse" class="nav-link dropbtn" 
+          routerLink="intervention" >Interventions</a>
           <div class="dropdown-content bg-dark">
             <a href="#">Télésurveilleurs</a>
             <a href="#">Sites d'intervention</a>
@@ -68,7 +70,7 @@
   </div>
 
 </div>
-<div class="container col-sm-12">
+<div class="container-fluid">
     <router-outlet></router-outlet>
 </div>
 

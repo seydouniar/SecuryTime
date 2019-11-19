@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   title = 'SecuryTime';
   isAuth: boolean;
+  show:boolean = false;
   constructor(private authService: AuthService){
 
   }
@@ -22,6 +23,11 @@ export class AppComponent implements OnInit {
       }
     })
   }
+
+  toggleCollapse() {
+    this.show = !this.show
+  }
+
 
   onSignOut(){
     this.authService.signOut();

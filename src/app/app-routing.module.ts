@@ -9,13 +9,15 @@ import { NewCompteComponent } from './new-compte/new-compte.component';
 import { GuardService } from './services/guard.service';
 import { HomeComponent } from './home/home.component';
 import { PlanningComponent } from './planning/planning.component';
-import { NewAgentComponent } from './planning/new-agent/new-agent.component';
-import { AgentDetailsComponent } from './planning/agent-details/agent-details.component';
-import { NewSiteComponent } from './planning/new-site/new-site.component';
-import { SiteListComponent } from './planning/site-list/site-list.component';
-import { AgentListComponent } from './planning/agent-list/agent-list.component';
+import { NewAgentComponent } from './new-agent/new-agent.component';
+import { AgentDetailsComponent } from './agent-details/agent-details.component';
+import { NewSiteComponent } from './new-site/new-site.component';
+import { SiteListComponent } from './site-list/site-list.component';
+import { AgentListComponent } from './agent-list/agent-list.component';
 import { CalendarComponent } from './planning/calendar/calendar.component';
 import { PlanningHomeComponent } from './planning/planning-home/planning-home.component';
+import { AgentPlanningComponent } from './planning/agent-planning/agent-planning.component';
+import { SitePlanningComponent } from './planning/site-planning/site-planning.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,15 +27,17 @@ const routes: Routes = [
   { path: 'agences', canActivate: [GuardService],component: AgencesComponent},
   { path: 'connexion', component: AuthComponent},
   { path: 'planning', component: PlanningComponent,children:[
-    { path: 'les-sites', component: SiteListComponent},
-    { path: 'les-agent', component: AgentListComponent},
-    { path: 'agent-details/:id', component:AgentDetailsComponent},
-    { path: 'calendar', component: CalendarComponent },
+    
     { path: 'acceuil',component:PlanningHomeComponent},
+    { path: 'agents-planning', component: AgentPlanningComponent},
+    { path: 'sites-planning', component:SitePlanningComponent},
     { path: '',redirectTo:'acceuil',pathMatch:'full'},
     { path: '**',redirectTo:'acceuil'},
 
   ]},
+  { path: 'les-sites', component: SiteListComponent},
+  { path: 'les-agent', component: AgentListComponent},
+  { path: 'agent-details/:id', component:AgentDetailsComponent},
   { path: 'inscription', component: NewCompteComponent},
   { path: 'newagent', component: NewAgentComponent},
   { path: 'newsite', component: NewSiteComponent},

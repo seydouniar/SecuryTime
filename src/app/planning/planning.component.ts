@@ -24,7 +24,7 @@ export class PlanningComponent implements OnInit,OnDestroy {
     private agentServices: AgentServices) { }
 
   ngOnInit() {
-    //this.router.navigate(['/planning/calendar'])
+    // this.router.navigate(['/planning/calendar'])
     this.angentSubscription=this.agentServices.agentSubject.subscribe(
       (data)=>{
         this.listAgent = data
@@ -79,5 +79,9 @@ export class PlanningComponent implements OnInit,OnDestroy {
   getEvents(){
     this.eventServices.getEvents().then((data:Event[])=>{
     }).catch(err=>console.log(err))
+  }
+
+  gotoSub(routerLink){
+    this.router.navigate(['/planning/'+routerLink])
   }
 }

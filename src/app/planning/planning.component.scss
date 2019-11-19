@@ -12,15 +12,15 @@ button,input {
   padding-top: 3%;
 }
 
+.buttons { 
+  display: block; 
+  text-align: right; 
+  margin: 0;
+  padding: 0;
+}
+.buttons .btn { float: none; }
 
-
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
-  }
-
-  .row.content {
-    height: auto;
-  }
+.row{
+  margin: 0;
+  padding: 0;
 }

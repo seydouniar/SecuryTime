@@ -1,0 +1,15 @@
+@import url(@fullcalendar/core/main.css);
+@import url(@fullcalendar/daygrid/main.css);
+@import url(@fullcalendar/timegrid/main.css);
+@import url(@fullcalendar/list/main.css);
+html,
+body {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

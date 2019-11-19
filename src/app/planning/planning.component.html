@@ -1,7 +1,10 @@
 
-    <div class="jumbotron text-center">
-      <h1>Planning</h1>
+    <div class="buttons btn-group btn-group-justified">
+      <button type="button" class="btn btn-primary" (click)="gotoSub('/planning')">Planning</button>
+      <button type="button" class="btn btn-primary" (click)="gotoSub('/sites-planning')">Par sites</button>
+      <button type="button" class="btn btn-primary" (click)="gotoSub('/agents-planning')">Par agents</button>
     </div>
+    
 
     <div class="container-fluid">
         <router-outlet></router-outlet>

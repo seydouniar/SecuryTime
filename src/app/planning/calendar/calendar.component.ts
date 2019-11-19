@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, ElementRef, Input, OnDestroy } from '@angular/core';
+import { Component, ViewChild, OnInit, ElementRef, Input, OnDestroy, AfterViewInit } from '@angular/core';
 import { Calendar } from '@fullcalendar/core';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -20,64 +20,66 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./calendar.component.scss']
 })
 
-export class CalendarComponent implements OnInit,OnDestroy {
-  
-  @ViewChild('calendar',{static: false}) calendarComponent: FullCalendarComponent; // the #calendar in the template
+export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('calendar', {static: false}) calendarComponent: FullCalendarComponent; // the #calendar in the template
   @ViewChild('serviceModale', { static: false }) modal: ElementRef; // the #calendar in the template
-  @ViewChild('external',{static:false,read:ElementRef}) external: ElementRef;
+  @ViewChild('external', {static: false, read: ElementRef}) external: ElementRef;
 
   @Input() agents: Agent[];
   @Input() sites: Site[];
-  events=[];
+  @Input() isEditable: boolean = false;
+  @Input() showAll: string = 'tous'
+  site:Site;
+  agent:Agent;
+  events = [];
   options: any;
   closeResult: string;
 
+
   eventSubcription: Subscription;
   serviceForm: FormGroup;
-  calendarPlugins = [interactionPlugin,dayGridPlugin, timeGrigPlugin, listPlugin]; // important!
-  isModalShow: boolean = false;
-  isSiteShow: boolean = false;
+  calendarPlugins = [interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]; // important!
   day;
   header = {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridMonth,timeGridWeek,timeGridDay,listMonth',
-          }
-  constructor(private formBuilder: FormBuilder,private eventServices: EventServices,private modalService: NgbModal) { }
+        };
+  constructor(private formBuilder: FormBuilder, private eventServices: EventServices, private modalService: NgbModal) { }
 
-  ngOnInit(){
-    this.eventSubcription = this.eventServices.eventSubject.subscribe((data)=>{
-      this.events = data
-    })
+  ngOnInit() {
+    this.eventSubcription = this.eventServices.eventSubject.subscribe((data) => {
+      this.events = data;
+    });
     this.options = {
       editable: true,
       theme: 'standart', // default view, may be bootstrap
       header: {
-        left: 'prev,next today myCustomButton',
+        left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridMonth,timeGridWeek,timeGridDay,listMonth'
       },
-      locales:[frLocale],
+      locales: [frLocale],
       // add other plugins
       plugins: [interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]
     };
 
     
+    
     this.initForm();
-    this.getEvents()
+    this.getEvents();
 
   }
 
-  open(content,ev=null) {
+  open(content, ev = null) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
-    if(ev){
-      this.day = ev.dateStr
+    if (ev) {
+      this.day = ev.dateStr;
       console.log(ev.dateStr);
-      
     }
   }
 
@@ -91,126 +93,173 @@ export class CalendarComponent implements OnInit,OnDestroy {
     }
   }
 
-  ngOnDestroy(){
-    this.eventSubcription.unsubscribe()
+  ngOnDestroy() {
+    this.eventSubcription.unsubscribe();
   }
-  
+
   ngAfterViewInit() {
-    let calendarApi = this.calendarComponent.getApi();
+    const calendarApi = this.calendarComponent.getApi();
     calendarApi.render();
-
-    new Draggable(this.external.nativeElement,{
-      itemSelector:'.fc-event',
-      eventData: (event1)=>{
-        return {
-          title: event1.innerText
+    if(this.isEditable){
+      
+      new Draggable(this.external.nativeElement,{
+        itemSelector: '.fc-event',
+        eventData: (event1) => {
+          this.getIndex(this.external.nativeElement.children[1].value);
+          
+          return {
+            title: event1.innerText,
+            duration: "02:00",
+          }
         }
-      }
-    });
+      });
+    }
+
   }
 
-  switchSiteAgents(){
-    if(this.isSiteShow){
-      this.isSiteShow = false;
-    }else{
-      this.isSiteShow = true;
-    }
-  }
-  //calendar events
+ 
+// calendar events
   handleDateClick(arg) { // handler method
     console.log(arg.dateStr);
   }
 
-  //event click
-  eventClick(ev){
+  // event click
+  eventClick(ev) {
     console.log(ev);
+  }
+
+  dateClick(ev) {
+    console.log(ev);
+  }
+
+  updatHeader() {
+
+  }
+
+  updateEvent() {
+
+  }
+
+  eventDragStop(ev){
+    const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),null,null,ev.event.id);
+    this.eventServices.updateEvent(newevent).then((data)=>{
+
+    }).catch(err=>console.log(err)
+    );
+    
     
   }
 
-  dateClick(ev){
-    console.log(ev);
+  getIndex(i:number){
+    if(this.showAll==='site'){
+      this.site = this.sites[i];
+    }else if(this.showAll==='agent'){
+      this.agent = this.agents[i]
+    }
+    
+    console.log(this.site);
     
   }
 
-  updatHeader(){
+  eventReceive(ev){
+    if(this.showAll==='site'){
+      const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),this.site.id)
+      this.eventServices.addEvent(newevent).then((data)=>{
 
-  }
-
-  updateEvent(){
-
-  }
-
-  eventDragStop(){
-
-  }
-
-  dayRender(ev){
-    if(ev.e1){
-      ev.e1.addEventListener('dblclick',()=>{
-      alert('double click')
-    });
+      }).catch(err=>console.log(err)
+      );
+    }else if(this.showAll==='agent'){
+      console.log(ev.event.start.toISOString(),ev.event.end.toISOString());
+      
+      
     }
     
   }
 
-  
-  initForm(){
-    this.serviceForm = this.formBuilder.group({
-      djour:['',Validators.required],
-      dheure: ['', Validators.required], 
-      fjour: ['', Validators.required],
-      fheure: ['', Validators.required],
-      agent: ['',Validators.required],
-      site: ['',Validators.required]
-    })
-  }
-
-  //from service
-  addEvent(){
-    const formValue = this.serviceForm.value;
-    const d = formValue['djour'] + 'T'+formValue['dheure']+':00';
-    const f = formValue['fjour'] + 'T' + formValue['fheure'] + ':00';
-    const event = new Event(formValue['agent'],formValue['site'], d, f);
-    this.eventServices.addEvent(event).then((data)=>{
-      }).catch(err=>{console.log(err)
-    })
-    this.serviceForm.reset();
+  eventResizeStart(ev){
     
   }
 
-  getEvents(){
-    this.eventServices.getEvents().then((data:Event[])=>{      
-      data.forEach(elt=>{
-        const d = new Date (elt.debut)
-        const f = new Date(elt.fin)
-       
-        if (!isNaN(d.valueOf()) && !isNaN(f.valueOf())){
-          const  event = ({
-            title: elt.agent.nom + " - "+elt.site.dataSite.nom,
-            start: d,
-            color:this.getRandomColor(),
-            end: f,
-          })
-          this.calendarComponent.getApi().addEvent(event)
+  eventResizeStop(ev){
+    const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),null,null,ev.event.id);
+    this.eventServices.updateEvent(newevent).then((data)=>{
+      console.log(data);
+      
+    }).catch(err=>console.log(err)
+    );
+  }
+
+  eventDragStart(ev){
+    console.log(ev.dateStr);
+    
+  }
+
+  dayRender(ev) {
+    if (ev.e1) {
+      ev.e1.addEventListener('dblclick', () => {
+      alert('double click');
+    });
+    }
+  }
+
+  initForm() {
+  }
+
+  // from service
+  addEvent(){
+    const formValue = this.serviceForm.value;
+    const d = formValue['djour'] + 'T'+formValue['dheure'] + ':00';
+    const f = formValue['fjour'] + 'T' + formValue['fheure'] + ':00';
+    const event = new Event(formValue['agent'], formValue['site'], d, f);
+    this.eventServices.addEvent(event).then((data)=>{
+      }).catch(err => {console.log(err);
+    })
+    this.serviceForm.reset();
+  }
+
+  getEvents() {
+    this.eventServices.getEvents().then((data: Event[]) => {
+      console.log(data);
+      this.events=data;
+      this.events.forEach(elt=>{
+        const d = new Date (elt.debut);
+        const f = new Date(elt.fin);
+
+        if (!isNaN(d.valueOf()) && !isNaN(f.valueOf())) {
+          if(!elt.agent){
+            const  event = ({
+              id: elt.id,
+              title: elt.site.dataSite.nom,
+              start: d,
+              color: '#aa0000',
+              end: f,
+            });
+            this.calendarComponent.getApi().addEvent(event);
+          }else{
+            const  event = ({
+              id:elt.id,
+              title: elt.agent.nom + " - " + elt.site.dataSite.nom,
+              start: d,
+              color:this.getRandomColor(),
+              end: f,
+            });
+            this.calendarComponent.getApi().addEvent(event);
+          }
+         
+          
         }
       })
-    }).catch(err=>console.log(err)
-    )
+    }).catch(err => console.log(err)
+    );
   }
 
   getRandomColor() {
-    let color = Math.floor(0x1000000 * Math.random()).toString(16);
+    const color = Math.floor(0x1000000 * Math.random()).toString(16);
     return '#' + ('000000' + color).slice(-6);
    }
-  /**
-   * 
-   if (!isNaN(d.valueOf()) && !isNaN(f.valueOf())){
-      this.calendarComponent.getApi().addEvent({
-        title: 'site nom',
-        start: d,
-        end: f,
-      })
-    }
-   */
+
+  
+
+
 
 }

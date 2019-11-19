@@ -25,9 +25,11 @@ export class EventServices{
                     this.eventList=[]
                     data.forEach(val=>{
                         let event= new Event(
-                            this.agentServices.getAgentById(val.id_agent),
-                            this.agentServices.getSiteById(val.id_site),val.debut,val.fin
+                            val.debut,val.fin
                         )
+                        event.agent = this.agentServices.getAgentById(val.id_agent)
+                        event.site = this.agentServices.getSiteById(val.id_site);
+                        event.id = val.id;
                         this.eventList.push(event)
                     })
                     this.emitEvent();
@@ -49,10 +51,28 @@ export class EventServices{
             this.http.post(this.REG_SERVER + "/events/new", event, httpOptions).toPromise().then(
                 (data) => {
                     revolve(data);
+                    this.emitEvent();
                 }
             ).catch(err=>reject(err));
         })
        
+    }
+
+    updateEvent(event: Event){
+        return new Promise((revolve,reject) => {
+            const httpOptions = {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json'
+                })
+            };
+
+            this.http.post(this.REG_SERVER + "/events/update", event, httpOptions).toPromise().then(
+                (data) => {
+                    revolve(data);
+                    this.emitEvent();
+                }
+            ).catch(err=>reject(err));
+        })
     }
 
 
