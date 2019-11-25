@@ -1,0 +1,28 @@
+
+<h1 class="text-center" mat-dialog-title>Modifier l'horaire</h1>
+<div mat-dialog-content>
+    <form class="form-group edit-form">
+        <div class="form-inline">
+            <label for="agent">Agent</label>
+            <select name="agent" class="form-control">
+                <option value="no-select">aucun agent</option>
+            </select>
+            <button class="btn btn-danger" type="button">Supprimer</button>
+        </div>
+        
+        
+        <div class="form-inline">
+            <label for="">Debut</label>
+            <input type="date" ([ngModel])="event.debut" class="form-control">
+            <input type="time" ([ngModel])="event.hd" class="form-control">
+        </div>
+        
+        <div class="form-inline">
+            <label for="Fin">Fin</label>
+            <input type="date" ([ngModel])="event.fin" class="form-control">
+            <input type="time" ([ngModel])="event.hf" class="form-control">
+        </div>
+        <h4>debut: event.debut</h4>
+        <button class="btn btn-outline-secondary">Valider</button>
+    </form>
+</div>

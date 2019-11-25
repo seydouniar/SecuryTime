@@ -6,6 +6,8 @@ import timeGrigPlugin from '@fullcalendar/timegrid';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import frLocale from '@fullcalendar/core/locales/fr';
+import bootstrapPlugin from '@fullcalendar/bootstrap';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Agent } from 'src/app/modeles/agent';
 import { Site } from 'src/app/modeles/site';
@@ -13,6 +15,9 @@ import { EventServices } from 'src/app/services/event.services';
 import { Event } from 'src/app/modeles/event';
 import { Subscription } from 'rxjs';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEventSelectComponent } from './dialog-event-select/dialog-event-select.component';
+import { DialogEventEditComponent } from './dialog-event-edit/dialog-event-edit.component';
 
 @Component({
   selector: 'app-calendar',
@@ -34,18 +39,20 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
   events = [];
   options: any;
   closeResult: string;
+  refreshEvents;
+  calendarEvents: any = []
 
 
   eventSubcription: Subscription;
   serviceForm: FormGroup;
-  calendarPlugins = [interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]; // important!
+  calendarPlugins = [bootstrapPlugin,interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]; // important!
   day;
   header = {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridMonth,timeGridWeek,timeGridDay,listMonth',
         };
-  constructor(private formBuilder: FormBuilder, private eventServices: EventServices, private modalService: NgbModal) { }
+  constructor(public dialog: MatDialog, private eventServices: EventServices, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.eventSubcription = this.eventServices.eventSubject.subscribe((data) => {
@@ -53,45 +60,22 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
     });
     this.options = {
       editable: true,
-      theme: 'standart', // default view, may be bootstrap
+      theme: 'bootstrap', // default view, may be bootstrap
       header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridMonth,timeGridWeek,timeGridDay,listMonth'
+        left: 'prev,next,today',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
       },
       locales: [frLocale],
       // add other plugins
-      plugins: [interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]
+      plugins: [bootstrapPlugin, interactionPlugin, dayGridPlugin, timeGrigPlugin, listPlugin]
     };
 
     
     
-    this.initForm();
     this.getEvents();
 
   }
 
-  open(content, ev = null) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-    if (ev) {
-      this.day = ev.dateStr;
-      console.log(ev.dateStr);
-    }
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
 
   ngOnDestroy() {
     this.eventSubcription.unsubscribe();
@@ -105,8 +89,10 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
       new Draggable(this.external.nativeElement,{
         itemSelector: '.fc-event',
         eventData: (event1) => {
-          this.getIndex(this.external.nativeElement.children[1].value);
+          this.calendarEvents = calendarApi.getEvents();
+          const indexDrag = parseInt(event1.getAttribute("value"))
           
+          this.getIndex(indexDrag);
           return {
             title: event1.innerText,
             duration: "02:00",
@@ -114,6 +100,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       });
     }
+    calendarApi.setOption('addEventSource',this.refreshEvents)
 
   }
 
@@ -123,9 +110,14 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log(arg.dateStr);
   }
 
+  eventRender(ev){
+    console.log(ev.el);
+    
+  }
   // event click
   eventClick(ev) {
-    console.log(ev);
+    console.log(ev.event.start.toISOString());
+    this.openDialogEdit(ev)
   }
 
   dateClick(ev) {
@@ -143,7 +135,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
   eventDragStop(ev){
     const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),null,null,ev.event.id);
     this.eventServices.updateEvent(newevent).then((data)=>{
-
+      this.getEvents();
     }).catch(err=>console.log(err)
     );
     
@@ -157,11 +149,10 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
       this.agent = this.agents[i]
     }
     
-    console.log(this.site);
-    
   }
 
   eventReceive(ev){
+    
     if(this.showAll==='site'){
       const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),this.site.id)
       this.eventServices.addEvent(newevent).then((data)=>{
@@ -169,30 +160,36 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
       }).catch(err=>console.log(err)
       );
     }else if(this.showAll==='agent'){
-      console.log(ev.event.start.toISOString(),ev.event.end.toISOString());
+      console.log(this.agent.id);
+      
+      const day=ev.event.start.toISOString().split('T',2)[0];
+      const dayEvents = this.filterEventByDay(day)
+      if(dayEvents.length==0){
+        this.getEvents();
+        return alert("Aucun site n'est plannifier à cette date")
+        
+      }if(dayEvents.length == 1){
+        console.log(dayEvents);
+        
+        this.eventServices.addAgentEvent({id:dayEvents[0].id,id_agent:this.agent.id}).then(
+          ()=>{
+            this.getEvents();
+          }
+        ).catch(err=>console.log(err)
+        );
+        return alert("modification agent avec success");
+      }
+
+      this.openDialog(this.filterEventByDay(day))
+      
+      console.log(dayEvents);
       
       
     }
-    
   }
 
-  eventResizeStart(ev){
-    
-  }
-
-  eventResizeStop(ev){
-    const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),null,null,ev.event.id);
-    this.eventServices.updateEvent(newevent).then((data)=>{
-      console.log(data);
-      
-    }).catch(err=>console.log(err)
-    );
-  }
-
-  eventDragStart(ev){
-    console.log(ev.dateStr);
-    
-  }
+ 
+  
 
   dayRender(ev) {
     if (ev.e1) {
@@ -202,25 +199,13 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  initForm() {
-  }
-
-  // from service
-  addEvent(){
-    const formValue = this.serviceForm.value;
-    const d = formValue['djour'] + 'T'+formValue['dheure'] + ':00';
-    const f = formValue['fjour'] + 'T' + formValue['fheure'] + ':00';
-    const event = new Event(formValue['agent'], formValue['site'], d, f);
-    this.eventServices.addEvent(event).then((data)=>{
-      }).catch(err => {console.log(err);
-    })
-    this.serviceForm.reset();
-  }
-
+  
   getEvents() {
     this.eventServices.getEvents().then((data: Event[]) => {
-      console.log(data);
+      // console.log(data);
+      this.calendarComponent.getApi().removeAllEvents()
       this.events=data;
+      const arrayEvent = [];
       this.events.forEach(elt=>{
         const d = new Date (elt.debut);
         const f = new Date(elt.fin);
@@ -234,7 +219,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
               color: '#aa0000',
               end: f,
             });
-            this.calendarComponent.getApi().addEvent(event);
+            arrayEvent.push(event);
           }else{
             const  event = ({
               id:elt.id,
@@ -243,12 +228,14 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
               color:this.getRandomColor(),
               end: f,
             });
-            this.calendarComponent.getApi().addEvent(event);
-          }
-         
-          
+            arrayEvent.push(event);
+            
+          }    
         }
-      })
+      }); 
+     
+      this.calendarComponent.getApi().addEventSource(arrayEvent)
+      
     }).catch(err => console.log(err)
     );
   }
@@ -258,8 +245,47 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
     return '#' + ('000000' + color).slice(-6);
    }
 
+   filterEventByDay(day):any[]{
+    
+    return this.calendarEvents.filter(
+      ev=>ev.start.toISOString().split('T',2)[0].indexOf(day)>-1)
+   }
   
+   openDialog(events:any[]): void {
+    const dialogRef = this.dialog.open(DialogEventSelectComponent, {
+      width: '40%',
+      data: events
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.eventServices.addAgentEvent({id:result.id,id_agent:this.agent.id}).then(
+        ()=>{
+          this.getEvents();   
+          alert("modification agent avec success");
+        }
+      ).catch(err=>console.log(err)
+      );
+    });
+     
+  }
 
+  openDialogEdit(event?): void {
+    const dialogRef = this.dialog.open(DialogEventEditComponent, {
+      width: '40%',
+      data: event
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.eventServices.addAgentEvent({id:result.id,id_agent:this.agent.id}).then(
+        ()=>{
+          this.getEvents();   
+          alert("modification agent avec success");
+        }
+      ).catch(err=>console.log(err)
+      );
+    });
+     
+  }
 }

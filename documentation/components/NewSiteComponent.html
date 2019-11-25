@@ -1,0 +1,995 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>secury-time documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">secury-time documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NewSiteComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/new-site/new-site.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-new-site</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./new-site.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./new-site.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clientForm">clientForm</a>
+                            </li>
+                            <li>
+                                <a href="#clients">clients</a>
+                            </li>
+                            <li>
+                                <a href="#siteForm">siteForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#initForm">initForm</a>
+                            </li>
+                            <li>
+                                <a href="#initFormClient">initFormClient</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onAddClient">onAddClient</a>
+                            </li>
+                            <li>
+                                <a href="#onGetClient">onGetClient</a>
+                            </li>
+                            <li>
+                                <a href="#onSaveNewASite">onSaveNewASite</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formbuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, agentServices: <a href="../injectables/AgentServices.html">AgentServices</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/new-site/new-site.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formbuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agentServices</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AgentServices.html" target="_self" >AgentServices</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initForm"></a>
+                    <span class="name">
+                        <b>
+                            initForm
+                        </b>
+                        <a href="#initForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/new-site/new-site.component.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initFormClient"></a>
+                    <span class="name">
+                        <b>
+                            initFormClient
+                        </b>
+                        <a href="#initFormClient"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initFormClient()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/new-site/new-site.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/new-site/new-site.component.ts:18</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddClient"></a>
+                    <span class="name">
+                        <b>
+                            onAddClient
+                        </b>
+                        <a href="#onAddClient"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddClient()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/new-site/new-site.component.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onGetClient"></a>
+                    <span class="name">
+                        <b>
+                            onGetClient
+                        </b>
+                        <a href="#onGetClient"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onGetClient()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/new-site/new-site.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSaveNewASite"></a>
+                    <span class="name">
+                        <b>
+                            onSaveNewASite
+                        </b>
+                        <a href="#onSaveNewASite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSaveNewASite()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/new-site/new-site.component.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clientForm"></a>
+                        <span class="name">
+                            <b>
+                            clientForm</b>
+                            <a href="#clientForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/new-site/new-site.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clients"></a>
+                        <span class="name">
+                            <b>
+                            clients</b>
+                            <a href="#clients"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Client.html" target="_self" >Client[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/new-site/new-site.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="siteForm"></a>
+                        <span class="name">
+                            <b>
+                            siteForm</b>
+                            <a href="#siteForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/new-site/new-site.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormBuilder, FormControl, Validators } from &#x27;@angular/forms&#x27;;
+import { AgentServices } from &#x27;src/app/services/agent.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Client } from &#x27;src/app/modeles/client&#x27;;
+
+@Component({
+  selector: &#x27;app-new-site&#x27;,
+  templateUrl: &#x27;./new-site.component.html&#x27;,
+  styleUrls: [&#x27;./new-site.component.scss&#x27;]
+})
+export class NewSiteComponent implements OnInit {
+  clientForm: FormGroup;
+  siteForm: FormGroup;
+  clients: Client[];
+  constructor(private formbuilder: FormBuilder,private agentServices: AgentServices, private router: Router) { }
+
+  ngOnInit() {
+    this.onGetClient();
+    this.initForm();
+    this.initFormClient();
+  
+  }
+
+  initForm(){
+    this.siteForm &#x3D; this.formbuilder.group({
+      data_site: new FormGroup({
+        nom: new FormControl(&#x27;&#x27;,  Validators.required),
+        nom_agence: new FormControl(&#x27;&#x27;,  Validators.required),
+        responsable: new FormControl(&#x27;&#x27;,  Validators.required),
+        code_site: new FormControl(&#x27;&#x27;,  Validators.required),
+        couleur: new FormControl(&#x27;&#x27;,  Validators.required),
+        email: new FormControl(&#x27;&#x27;,  Validators.required),
+        tel: new FormControl(&#x27;&#x27;,  Validators.required)
+      }),
+      adresse: new FormGroup({
+        voie: new FormControl(&#x27;&#x27;,  Validators.required),
+        complement: new FormControl(&#x27;&#x27;),
+        commune: new FormControl(&#x27;&#x27;,  Validators.required),
+        ville: new FormControl(&#x27;&#x27;,  Validators.required),
+        pays: new FormControl(&#x27;&#x27;,  Validators.required)
+      }),
+      id_client: [&#x27;&#x27;,Validators.required]
+    })
+  }
+
+  initFormClient() {
+    this.clientForm &#x3D; this.formbuilder.group({
+    nom: [&#x27;&#x27;, Validators.required],
+    code_facture: [&#x27;&#x27;, Validators.required],
+    adresse: new FormGroup({
+      rue: new FormControl(&#x27;&#x27;, Validators.required),
+      code_postale: new FormControl(&#x27;&#x27;, Validators.required),
+      ville: new FormControl(&#x27;&#x27;, Validators.required),
+      pays: new FormControl(&#x27;&#x27;, Validators.required)
+    }),
+    contacts: new FormGroup({
+      email: new FormControl(&#x27;&#x27;, [Validators.required, Validators.email]),
+      mobile: new FormControl(&#x27;&#x27;, Validators.required),
+      fixe: new FormControl(&#x27;&#x27;, Validators.required)
+    }),
+  });
+}
+
+  onGetClient(){
+    this.agentServices.getClient().subscribe((data:Client[])&#x3D;&gt;{
+      this.clients&#x3D; data;
+      console.log(data);
+      
+    })
+  }
+  onSaveNewASite(){
+    const formValue &#x3D; this.siteForm.value
+    this.agentServices.addSite(formValue).subscribe((data)&#x3D;&gt;{
+      if(data.success){
+        this.router.navigate([&#x27;/planning/les-sites&#x27;])
+      }
+      
+    })
+  }
+
+  onAddClient(){
+    const formValue &#x3D; this.clientForm.value
+    this.clients&#x3D;[]
+    this.agentServices.addClient(formValue).subscribe((data)&#x3D;&gt;{
+      if(data.success){
+        console.log(data.success);
+        this.onGetClient();
+      }
+    })
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;form  [formGroup]&#x3D;&quot;siteForm&quot; (ngSubmit)&#x3D;&quot;onSaveNewASite()&quot;&gt;
+        
+        &lt;fieldset formGroupName&#x3D;&quot;data_site&quot; &gt;
+            &lt;legend&gt;Site d&#x27;intervention&lt;/legend&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-md-6 col-md-offset-1&quot;&gt;
+                    &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                        &lt;label for&#x3D;&quot;nom&quot; class&#x3D;&quot;col-md-3 col-md-offset-1 col-form-label&quot;&gt;Nom du site&lt;/label&gt;
+                        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control col-md-7&quot; id &#x3D; &quot;nom&quot; formControlName&#x3D;&quot;nom&quot;/&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                        &lt;label for&#x3D;&quot;nom_agence&quot; class&#x3D;&quot;col-md-3 col-md-offset-1 col-form-label&quot;&gt;Nom agence&lt;/label&gt;
+                        &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;nom_agence&quot; class&#x3D;&quot;form-control col-md-7&quot; formControlName&#x3D;&quot;nom_agence&quot;/&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                        &lt;label for&#x3D;&quot;responsable&quot; class&#x3D;&quot;col-md-3 col-md-offset-1 col-form-label&quot;&gt;Responsable&lt;/label&gt;
+                        &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;responsable&quot;  class&#x3D;&quot;form-control col-md-7&quot; formControlName&#x3D;&quot;responsable&quot;/&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                                &lt;label for&#x3D;&quot;code_site&quot; class&#x3D;&quot;col-md-6 col-form-label&quot;&gt;Code site&lt;/label&gt;
+                                &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;code_site&quot;  class&#x3D;&quot;form-control col-md-6&quot; formControlName&#x3D;&quot;code_site&quot;/&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;  
+                        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                                &lt;label for&#x3D;&quot;couleur&quot; class&#x3D;&quot;col-md-6 col-form-label&quot;&gt;Couleur&lt;/label&gt;
+                                &lt;select formControlName&#x3D;&quot;couleur&quot; id&#x3D;&quot;couleur&quot; class&#x3D;&quot;form-control col-md-6&quot;&gt;
+                                    &lt;option value&#x3D;&quot;#ffffff&quot;&gt;Blanc&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;#ff0000&quot;&gt;Rouge&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;#00ff00&quot;&gt;vert&lt;/option&gt;
+                                &lt;/select&gt;  
+                            &lt;/div&gt;
+                        &lt;/div&gt; 
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                        &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;col-md-3 col-md-offset-1 col-form-label&quot;&gt;Email&lt;/label&gt;
+                        &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;email&quot;  class&#x3D;&quot;form-control col-md-7&quot; formControlName&#x3D;&quot;email&quot;/&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                        &lt;label for&#x3D;&quot;tel&quot; class&#x3D;&quot;col-md-3 col-md-offset-1 col-form-label&quot;&gt;Tel &lt;/label&gt;
+                        &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;tel&quot;  class&#x3D;&quot;form-control col-md-7&quot; formControlName&#x3D;&quot;tel&quot;/&gt;
+                    &lt;/div&gt;
+                            
+                &lt;/div&gt;
+            &lt;/div&gt;    
+        &lt;/fieldset&gt;                 
+        
+            
+        &lt;fieldset formGroupName&#x3D;&quot;adresse&quot;&gt;
+            &lt;legend&gt;adresse de Site&lt;/legend&gt;
+            
+            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                &lt;label for&#x3D;&quot;voie&quot; class&#x3D;&quot;col-md-3 col-md-offset-1 col-form-label&quot;&gt;Voie&lt;/label&gt;
+                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control col-md-7&quot; id &#x3D; &quot;voie&quot; formControlName&#x3D;&quot;voie&quot; placeholder&#x3D;&quot;N° Rue N° porte, nom de la Rue&quot;/&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                &lt;label for&#x3D;&quot;complement&quot; class&#x3D;&quot;col-md-3 col-md-offset-1 col-form-label&quot;&gt;Complement&lt;/label&gt;
+                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control col-md-7&quot; id &#x3D; &quot;complement&quot; formControlName&#x3D;&quot;complement&quot; placeholder&#x3D;&quot;Complement d&#x27;adresse&quot;/&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group col-md--4 row&quot;&gt;
+                    &lt;label for&#x3D;&quot;commune&quot; class&#x3D;&quot;col-md-4 col-md-offset-1 col-form-label&quot;&gt;Commune&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;commune&quot; class&#x3D;&quot;form-control col-md-6&quot; formControlName&#x3D;&quot;commune&quot; placeholder&#x3D;&quot;CP, BP, BL&quot;/&gt;
+                &lt;/div&gt; 
+                &lt;div class&#x3D;&quot;form-group col-md-4 row&quot;&gt;
+                    &lt;label for&#x3D;&quot;ville&quot; class&#x3D;&quot;col-md-4 col-md-offset-1 col-form-label&quot;&gt;ville&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;ville&quot; class&#x3D;&quot;form-control col-md-6&quot; formControlName&#x3D;&quot;ville&quot;/&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group col-md-4 row&quot;&gt;
+                    &lt;label for&#x3D;&quot;pays&quot; class&#x3D;&quot;col-md-4 col-md-offset-1 col-form-label&quot;&gt;Pays&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; id &#x3D; &quot;pays&quot; class&#x3D;&quot;form-control col-md-6&quot; formControlName&#x3D;&quot;pays&quot;/&gt;
+                &lt;/div&gt;
+                  
+            &lt;/div&gt;
+            
+        &lt;/fieldset&gt;
+        
+
+        &lt;fieldset&gt;
+            &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                &lt;label for&#x3D;&quot;id_client&quot; class&#x3D;&quot;col-md-3  col-form-label&quot;&gt;Nom du Client &lt;/label&gt;
+                &lt;select class&#x3D;&quot;form-control col-md-3&quot; id &#x3D; &quot;id_client&quot; formControlName&#x3D;&quot;id_client&quot;&gt;
+                    &lt;option *ngFor&#x3D;&quot;let client of clients&quot; [value]&#x3D;&quot;client.id&quot;&gt;{{client.client_data.nom}}&lt;/option&gt;
+                &lt;/select&gt;
+    
+                &lt;button class&#x3D;&quot;btn btn-primary col-md-3 offset-md-3&quot; type&#x3D;&quot;button&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#clientModal&quot;&gt;Nouveau client&lt;/button&gt;
+
+                &lt;!-- The Modal --&gt;
+                &lt;div class&#x3D;&quot;modal&quot; id&#x3D;&quot;clientModal&quot;&gt;
+                    &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+                        &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+                    
+                            &lt;!-- Modal Header --&gt;
+                    
+                            &lt;!-- Modal body --&gt;
+                            &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+                                &lt;form [formGroup]&#x3D;&quot;clientForm&quot; (ngSubmit)&#x3D;&quot;onAddClient()&quot;&gt;
+                                    &lt;fieldset&gt;
+                                        &lt;legend&gt;Client&lt;/legend&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nom&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Nom du client&quot; id&#x3D;&quot;nom&quot;&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;code facture&quot; formControlName&#x3D;&quot;code_facture&quot;&gt;
+                                    &lt;/fieldset&gt;
+                                    
+                                    &lt;fieldset formGroupName&#x3D;&quot;adresse&quot; id&#x3D;&quot;adresse&quot;&gt;
+                                        &lt;legend&gt;Adresse&lt;/legend&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.rue.errors }&quot; formControlName&#x3D;&quot;rue&quot; placeholder&#x3D;&quot;N° Rue N° porte&quot; id&#x3D;&quot;rue&quot;&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.code_postale.errors }&quot;
+                                        formControlName&#x3D;&quot;code_postale&quot; placeholder&#x3D;&quot;Code Postale&quot; id&#x3D;&quot;code_postale&quot;&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.ville.errors }&quot;
+                                        formControlName&#x3D;&quot;ville&quot; placeholder&#x3D;&quot;ville&quot; id&#x3D;&quot;ville&quot;&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.pays.errors }&quot;
+                                        formControlName&#x3D;&quot;pays&quot; placeholder&#x3D;&quot;Pays&quot; id&#x3D;&quot;pays&quot;&gt;
+                                    &lt;/fieldset&gt;
+
+                                    &lt;fieldset formGroupName&#x3D;&quot;contacts&quot; id&#x3D;&quot;contacts&quot;&gt;
+                                        &lt;legend&gt;Contacts&lt;/legend&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.email.errors }&quot;
+                                        formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;adresse email&quot; id&#x3D;&quot;email&quot;&gt;
+                                        &lt;input type&#x3D;&quot;tel&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Mobile(75-63-45-42)&quot;
+                                        [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.mobile.errors }&quot;    
+                                         formControlName&#x3D;&quot;mobile&quot; id&#x3D;&quot;mobile&quot;&gt;
+                                        &lt;input type&#x3D;&quot;tel&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;fixe&quot; placeholder&#x3D;&quot;fixe (72-25-78-56)&quot;
+                                        [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.fixe.errors }&quot;
+                                         id&#x3D;&quot;fixe&quot;&gt;
+                                    &lt;/fieldset&gt;
+                                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger col-md-4&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;Close&lt;/button&gt;
+                                        &lt;button class&#x3D;&quot;btn btn-success col-md-4 offset-md-4&quot; [disabled]&#x3D;&quot;clientForm.invalid&quot; type&#x3D;&quot;submit&quot;&gt;Valider&lt;/button&gt;
+                                    &lt;/div&gt;
+                                    
+                                &lt;/form&gt;
+                            &lt;/div&gt;
+                    
+                            &lt;!-- Modal footer --&gt;
+                            
+                    
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+            &lt;/div&gt;
+            
+        &lt;/fieldset&gt; 
+                                    
+    
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-danger col-md-4&quot; type&#x3D;&quot;button&quot;&gt;Annuler&lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-success col-md-4 offset-md-4&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;siteForm.invalid&quot;&gt;Enrégistrer&lt;/button&gt;  
+        &lt;/div&gt;
+
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./new-site.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.container{
+    margin: auto;
+    padding: auto !important;
+    form{
+        input{
+            margin-top:2px;
+        }
+        select{
+            margin-top: 2px;
+        }
+        .row{
+            margin: 5px auto !important;
+        }
+    }
+    
+}
+
+
+ fieldset 
+	{
+		border: 1px solid #ddd !important;
+		margin: 0;
+		xmin-width: 0;
+		padding: 10px;       
+		position: relative;
+		border-radius:4px;
+		background-color:#f5f5f5;
+        padding-left:10px!important;
+	}	
+	
+		legend
+		{
+			font-size:14px;
+			font-weight:bold;
+			margin-bottom: 0px; 
+			width: 35%; 
+			border: 1px solid #ddd;
+			border-radius: 4px; 
+			padding: 5px 5px 5px 10px; 
+			background-color: #ffffff;
+		}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <form  [formGroup]="siteForm" (ngSubmit)="onSaveNewASite()">                <fieldset formGroupName="data_site" >            <legend>Site d\'intervention</legend>            <div class="row">                <div class="col-md-6 col-md-offset-1">                    <div class="form-group row">                        <label for="nom" class="col-md-3 col-md-offset-1 col-form-label">Nom du site</label>                        <input type="text" class="form-control col-md-7" id = "nom" formControlName="nom"/>                    </div>                    <div class="form-group row">                        <label for="nom_agence" class="col-md-3 col-md-offset-1 col-form-label">Nom agence</label>                        <input type="text" id = "nom_agence" class="form-control col-md-7" formControlName="nom_agence"/>                    </div>                            <div class="form-group row">                        <label for="responsable" class="col-md-3 col-md-offset-1 col-form-label">Responsable</label>                        <input type="text" id = "responsable"  class="form-control col-md-7" formControlName="responsable"/>                    </div>                </div>                <div class="col-md-6">                    <div class="row">                        <div class="col-md-6">                            <div class="form-group row">                                <label for="code_site" class="col-md-6 col-form-label">Code site</label>                                <input type="text" id = "code_site"  class="form-control col-md-6" formControlName="code_site"/>                            </div>                        </div>                          <div class="col-md-6">                            <div class="form-group row">                                <label for="couleur" class="col-md-6 col-form-label">Couleur</label>                                <select formControlName="couleur" id="couleur" class="form-control col-md-6">                                    <option value="#ffffff">Blanc</option>                                    <option value="#ff0000">Rouge</option>                                    <option value="#00ff00">vert</option>                                </select>                              </div>                        </div>                     </div>                    <div class="form-group row">                        <label for="email" class="col-md-3 col-md-offset-1 col-form-label">Email</label>                        <input type="text" id = "email"  class="form-control col-md-7" formControlName="email"/>                    </div>                    <div class="form-group row">                        <label for="tel" class="col-md-3 col-md-offset-1 col-form-label">Tel </label>                        <input type="text" id = "tel"  class="form-control col-md-7" formControlName="tel"/>                    </div>                                            </div>            </div>            </fieldset>                                             <fieldset formGroupName="adresse">            <legend>adresse de Site</legend>                        <div class="form-group row">                <label for="voie" class="col-md-3 col-md-offset-1 col-form-label">Voie</label>                <input type="text" class="form-control col-md-7" id = "voie" formControlName="voie" placeholder="N° Rue N° porte, nom de la Rue"/>            </div>            <div class="form-group row">                <label for="complement" class="col-md-3 col-md-offset-1 col-form-label">Complement</label>                <input type="text" class="form-control col-md-7" id = "complement" formControlName="complement" placeholder="Complement d\'adresse"/>            </div>            <div class="row">                <div class="form-group col-md--4 row">                    <label for="commune" class="col-md-4 col-md-offset-1 col-form-label">Commune</label>                    <input type="text" id = "commune" class="form-control col-md-6" formControlName="commune" placeholder="CP, BP, BL"/>                </div>                 <div class="form-group col-md-4 row">                    <label for="ville" class="col-md-4 col-md-offset-1 col-form-label">ville</label>                    <input type="text" id = "ville" class="form-control col-md-6" formControlName="ville"/>                </div>                <div class="form-group col-md-4 row">                    <label for="pays" class="col-md-4 col-md-offset-1 col-form-label">Pays</label>                    <input type="text" id = "pays" class="form-control col-md-6" formControlName="pays"/>                </div>                              </div>                    </fieldset>                <fieldset>            <div class="form-group row">                <label for="id_client" class="col-md-3  col-form-label">Nom du Client </label>                <select class="form-control col-md-3" id = "id_client" formControlName="id_client">                    <option *ngFor="let client of clients" [value]="client.id">{{client.client_data.nom}}</option>                </select>                    <button class="btn btn-primary col-md-3 offset-md-3" type="button" data-toggle="modal" data-target="#clientModal">Nouveau client</button>                <!-- The Modal -->                <div class="modal" id="clientModal">                    <div class="modal-dialog">                        <div class="modal-content">                                                <!-- Modal Header -->                                                <!-- Modal body -->                            <div class="modal-body">                                <form [formGroup]="clientForm" (ngSubmit)="onAddClient()">                                    <fieldset>                                        <legend>Client</legend>                                        <input type="text" formControlName="nom" class="form-control" placeholder="Nom du client" id="nom">                                        <input type="text" class="form-control" placeholder="code facture" formControlName="code_facture">                                    </fieldset>                                                                        <fieldset formGroupName="adresse" id="adresse">                                        <legend>Adresse</legend>                                        <input type="text" class="form-control"                                         [ngClass]="{ \'is-invalid\': submitted && f.rue.errors }" formControlName="rue" placeholder="N° Rue N° porte" id="rue">                                        <input type="text" class="form-control"                                         [ngClass]="{ \'is-invalid\': submitted && f.code_postale.errors }"                                        formControlName="code_postale" placeholder="Code Postale" id="code_postale">                                        <input type="text" class="form-control"                                         [ngClass]="{ \'is-invalid\': submitted && f.ville.errors }"                                        formControlName="ville" placeholder="ville" id="ville">                                        <input type="text" class="form-control"                                         [ngClass]="{ \'is-invalid\': submitted && f.pays.errors }"                                        formControlName="pays" placeholder="Pays" id="pays">                                    </fieldset>                                    <fieldset formGroupName="contacts" id="contacts">                                        <legend>Contacts</legend>                                        <input type="text" class="form-control"                                         [ngClass]="{ \'is-invalid\': submitted && f.email.errors }"                                        formControlName="email" placeholder="adresse email" id="email">                                        <input type="tel" class="form-control" placeholder="Mobile(75-63-45-42)"                                        [ngClass]="{ \'is-invalid\': submitted && f.mobile.errors }"                                             formControlName="mobile" id="mobile">                                        <input type="tel" class="form-control" formControlName="fixe" placeholder="fixe (72-25-78-56)"                                        [ngClass]="{ \'is-invalid\': submitted && f.fixe.errors }"                                         id="fixe">                                    </fieldset>                                    <div class="row">                                        <button type="button" class="btn btn-danger col-md-4" data-dismiss="modal">Close</button>                                        <button class="btn btn-success col-md-4 offset-md-4" [disabled]="clientForm.invalid" type="submit">Valider</button>                                    </div>                                                                    </form>                            </div>                                                <!-- Modal footer -->                                                                        </div>                        </div>                    </div>            </div>                    </fieldset>                                                 <div class="row">            <button class="btn btn-danger col-md-4" type="button">Annuler</button>            <button class="btn btn-success col-md-4 offset-md-4" type="submit" [disabled]="siteForm.invalid">Enrégistrer</button>          </div>    </form></div></div>'
+    var COMPONENTS = [{'name': 'AgencesComponent', 'selector': 'app-agences'},{'name': 'AgentDetailsComponent', 'selector': 'app-agent-details'},{'name': 'AgentListComponent', 'selector': 'app-agent-list'},{'name': 'AgentPlanningComponent', 'selector': 'app-agent-planning'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'DevisComponent', 'selector': 'app-devis'},{'name': 'DialogEventEditComponent', 'selector': 'app-dialog-event-edit'},{'name': 'DialogEventSelectComponent', 'selector': 'app-dialog-event-select'},{'name': 'FacturationComponent', 'selector': 'app-facturation'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterventionsComponent', 'selector': 'app-interventions'},{'name': 'NewAgentComponent', 'selector': 'app-new-agent'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewCompteComponent', 'selector': 'app-new-compte'},{'name': 'NewSiteComponent', 'selector': 'app-new-site'},{'name': 'PlanningComponent', 'selector': 'app-planning'},{'name': 'PlanningHomeComponent', 'selector': 'app-planning-home'},{'name': 'PriseServiceComponent', 'selector': 'app-prise-service'},{'name': 'SiteListComponent', 'selector': 'app-site-list'},{'name': 'SitePlanningComponent', 'selector': 'app-site-planning'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NewSiteComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NewSiteComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

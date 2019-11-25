@@ -1,0 +1,776 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>secury-time documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">secury-time documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NewAgentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/new-agent/new-agent.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-new-agent</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./new-agent.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./new-agent.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#agentForm">agentForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#initForm">initForm</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSaveNewAgent">onSaveNewAgent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#f">f</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, agentService: <a href="../injectables/AgentServices.html">AgentServices</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/new-agent/new-agent.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AgentServices.html" target="_self" >AgentServices</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initForm"></a>
+                    <span class="name">
+                        <b>
+                            initForm
+                        </b>
+                        <a href="#initForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/new-agent/new-agent.component.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/new-agent/new-agent.component.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSaveNewAgent"></a>
+                    <span class="name">
+                        <b>
+                            onSaveNewAgent
+                        </b>
+                        <a href="#onSaveNewAgent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSaveNewAgent()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/new-agent/new-agent.component.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="agentForm"></a>
+                        <span class="name">
+                            <b>
+                            agentForm</b>
+                            <a href="#agentForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/new-agent/new-agent.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="f"></a>
+                        <span class="name"><b>f</b><a href="#f"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>f()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/new-agent/new-agent.component.ts:49</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Inject } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormBuilder, Validators, FormControl } from &#x27;@angular/forms&#x27;;
+import { AgentServices } from &#x27;src/app/services/agent.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-new-agent&#x27;,
+  templateUrl: &#x27;./new-agent.component.html&#x27;,
+  styleUrls: [&#x27;./new-agent.component.scss&#x27;]
+})
+export class NewAgentComponent implements OnInit {
+  agentForm: FormGroup;
+  constructor(@Inject(FormBuilder) private formBuilder: FormBuilder, private agentService: AgentServices, private router: Router) { }
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+      this.agentForm &#x3D; this.formBuilder.group({
+      matricule: [&#x27;&#x27;, Validators.required],
+      genre: [&#x27;&#x27;, Validators.required],
+      nom: [&#x27;&#x27;, Validators.required],
+      prenom: [&#x27;&#x27;, Validators.required],
+      adresse: new FormGroup({
+        rue: new FormControl(&#x27;&#x27;, Validators.required),
+        code_postale: new FormControl(&#x27;&#x27;, Validators.required),
+        ville: new FormControl(&#x27;&#x27;, Validators.required),
+        pays: new FormControl(&#x27;&#x27;, Validators.required)
+      }),
+      contacts: new FormGroup({
+        email: new FormControl(&#x27;&#x27;, [Validators.required, Validators.email]),
+        mobile: new FormControl(&#x27;&#x27;, Validators.required),
+        fixe: new FormControl(&#x27;&#x27;, Validators.required)
+      }),
+      cni: new FormGroup({
+        numero: new FormControl(&#x27;&#x27;, Validators.required),
+        delivre: new FormControl(&#x27;&#x27;, Validators.required),
+        fin: new FormControl(&#x27;&#x27;, Validators.required)
+      }),
+      carte_agent: new FormGroup({
+        numero: new FormControl(&#x27;&#x27;, Validators.required),
+        delivre: new FormControl(&#x27;&#x27;, Validators.required),
+        fin: new FormControl(&#x27;&#x27;, Validators.required)
+      })
+    });
+  }
+
+  get f() { return this.agentForm.controls; }
+
+  onSaveNewAgent() {
+    const formValue &#x3D; this.agentForm.value;
+    console.log(formValue);
+    
+    this.agentService.Ajouter(formValue).subscribe(
+      (data) &#x3D;&gt; {
+        if (data.success) {
+          this.router.navigate([&#x27;/planning&#x27;]);
+        }
+      }
+    );
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;agentForm&quot; (ngSubmit)&#x3D;&quot;onSaveNewAgent()&quot; &gt;
+        &lt;!-- debut row--&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;!--info --&gt;
+            &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                &lt;!--matricule--&gt;
+                &lt;fieldset &gt;
+                    &lt;legend&gt;
+                        infos
+                    &lt;/legend&gt;
+                    &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;N° Matricule&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.matricule.errors }&quot;
+                    formControlName&#x3D;&quot;matricule&quot; id&#x3D;&quot;matricule&quot;&gt;
+                    &lt;select class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;genre&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.genre.errors }&quot;
+                    placeholder&#x3D;&quot;Civilité&quot; id&#x3D;&quot;genre&quot;&gt;
+                        &lt;option value&#x3D;&quot;&quot; disabled selected hidden&gt;Civilité&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;Monsieur&quot;&gt;Monsieur&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;Madame&quot;&gt;Madame&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.nom.errors }&quot;
+                    formControlName&#x3D;&quot;nom&quot; placeholder&#x3D;&quot;Nom&quot;id&#x3D;&quot;nom&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.prenom.errors }&quot;
+                    formControlName&#x3D;&quot;prenom&quot; placeholder&#x3D;&quot;Prénom&quot;id&#x3D;&quot;prenom&quot;&gt;
+                &lt;/fieldset&gt;
+            &lt;/div&gt;
+        &lt;!--adresse--&gt;
+            &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                &lt;fieldset formGroupName&#x3D;&quot;adresse&quot; id&#x3D;&quot;adresse&quot;&gt;
+                    &lt;legend&gt;Adresse&lt;/legend&gt;
+                
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.rue.errors }&quot; formControlName&#x3D;&quot;rue&quot; placeholder&#x3D;&quot;N° Rue N° porte&quot; id&#x3D;&quot;rue&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.code_postale.errors }&quot;
+                    formControlName&#x3D;&quot;code_postale&quot; placeholder&#x3D;&quot;Code Postale&quot; id&#x3D;&quot;code_postale&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.ville.errors }&quot;
+                    formControlName&#x3D;&quot;ville&quot; placeholder&#x3D;&quot;ville&quot; id&#x3D;&quot;ville&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.pays.errors }&quot;
+                    formControlName&#x3D;&quot;pays&quot; placeholder&#x3D;&quot;Pays&quot; id&#x3D;&quot;pays&quot;&gt;
+                &lt;/fieldset&gt;
+            &lt;/div&gt;
+        &lt;!--contacts--&gt;
+            &lt;div class&#x3D;&quot;col-md-4&quot; &gt;
+                &lt;fieldset formGroupName&#x3D;&quot;contacts&quot; id&#x3D;&quot;contacts&quot;&gt;
+                    &lt;legend&gt;Contacts&lt;/legend&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.email.errors }&quot;
+                    formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;adresse email&quot; id&#x3D;&quot;email&quot;&gt;
+                    &lt;input type&#x3D;&quot;tel&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Mobile(75-63-45-42)&quot;
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.mobile.errors }&quot;    
+                    pattern &#x3D; &quot;[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}&quot; formControlName&#x3D;&quot;mobile&quot; id&#x3D;&quot;mobile&quot;&gt;
+                    &lt;input type&#x3D;&quot;tel&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;fixe&quot; placeholder&#x3D;&quot;fixe (72-25-78-56)&quot;
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.fixe.errors }&quot;
+                    pattern &#x3D; &quot;[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}&quot; id&#x3D;&quot;fixe&quot;&gt;
+                &lt;/fieldset&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- les cartes --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+            &lt;fieldset formGroupName&#x3D;&quot;cni&quot; id&#x3D;&quot;cni&quot;&gt;
+                &lt;legend&gt;Carte d&#x27;identite&lt;/legend&gt;
+                &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                    &lt;label for&#x3D;&quot;numero&quot; class&#x3D;&quot;col-md-4 col-form-label&quot;&gt;N° de la carte&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control col-md-8&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.numero.errors }&quot;
+                    formControlName&#x3D;&quot;numero&quot; id&#x3D;&quot;numero&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                    &lt;label for&#x3D;&quot;delivre&quot; class&#x3D;&quot;col-3 col-form-label&quot;&gt;Delivré le&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;date&quot; formControlName&#x3D;&quot;delivre&quot; id&#x3D;&quot;delivre&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.delivre.errors }&quot;
+                    class&#x3D;&quot;form-control col-6&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                    &lt;label class&#x3D;&quot;col-3 col-form-label&quot; for&#x3D;&quot;fin&quot;&gt;expire le&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;date&quot; formControlName&#x3D;&quot;fin&quot; 
+                    [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.fin.errors }&quot;
+                    class&#x3D;&quot;form-control col-6&quot; id&#x3D;&quot;fin&quot;&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+            &lt;fieldset formGroupName&#x3D;&quot;carte_agent&quot; id&#x3D;&quot;carte_agent&quot;&gt;
+              &lt;legend&gt;Carte d&#x27;agent&lt;/legend&gt;
+              &lt;div class&#x3D;&quot;form-group row&quot;&gt;
+                &lt;label for&#x3D;&quot;numero&quot; class&#x3D;&quot;col-md-4 col-form-label&quot;&gt;N° de la carte&lt;/label&gt;
+                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control col-md-8&quot; 
+                [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.numero.errors }&quot;
+                formControlName&#x3D;&quot;numero&quot; id&#x3D;&quot;numero&quot;&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;label for&#x3D;&quot;delivre&quot; class&#x3D;&quot;col-3 col-offset-2 col-form-label&quot;&gt;Delivré le&lt;/label&gt;
+                &lt;input type&#x3D;&quot;date&quot; formControlName&#x3D;&quot;delivre&quot; id&#x3D;&quot;delivre&quot; 
+                [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.delivre.errors }&quot;
+                class&#x3D;&quot;form-control col-6&quot;&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;label for&#x3D;&quot;fin&quot; class&#x3D;&quot;col-3 col-offset-2 col-form-label&quot;&gt;expire le&lt;/label&gt;
+                &lt;input type&#x3D;&quot;date&quot; formControlName&#x3D;&quot;fin&quot; 
+                [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.fin.errors }&quot;
+                class&#x3D;&quot;form-control col-6&quot; id&#x3D;&quot;fin&quot;&gt;
+              &lt;/div&gt;
+            &lt;/fieldset&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--fin cartes--&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-danger col-sm-4&quot; type&#x3D;&quot;button&quot;&gt;Annuler&lt;/button&gt;
+            &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-success col-sm-4 offset-sm-4&quot; [disabled]&#x3D;&quot;agentForm.invalid&quot;&gt;Enregistrer&lt;/button&gt;
+        &lt;/div&gt;
+            
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./new-agent.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.container{
+    margin: auto;
+    padding: auto !important;
+    input{
+        margin-top:5px;
+    }
+    select{
+        margin-top: 5px;
+    }
+    .row{
+        margin: 10px auto !important;
+    }
+}
+
+ fieldset 
+	{
+		border: 1px solid #ddd !important;
+		margin: 0;
+		xmin-width: 0;
+		padding: 10px;       
+		position: relative;
+		border-radius:4px;
+		background-color:#f5f5f5;
+        padding-left:10px!important;
+	}	
+	
+		legend
+		{
+			font-size:14px;
+			font-weight:bold;
+			margin-bottom: 0px; 
+			width: 35%; 
+			border: 1px solid #ddd;
+			border-radius: 4px; 
+			padding: 5px 5px 5px 10px; 
+			background-color: #ffffff;
+		}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <form [formGroup]="agentForm" (ngSubmit)="onSaveNewAgent()" >        <!-- debut row-->        <div class="row">            <!--info -->            <div class="col-md-4">                <!--matricule-->                <fieldset >                    <legend>                        infos                    </legend>                    <input type="number" class="form-control" placeholder="N° Matricule"                     [ngClass]="{ \'is-invalid\': submitted && f.matricule.errors }"                    formControlName="matricule" id="matricule">                    <select class="form-control" formControlName="genre"                     [ngClass]="{ \'is-invalid\': submitted && f.genre.errors }"                    placeholder="Civilité" id="genre">                        <option value="" disabled selected hidden>Civilité</option>                        <option value="Monsieur">Monsieur</option>                        <option value="Madame">Madame</option>                    </select>                    <input type="text" class="form-control"                     [ngClass]="{ \'is-invalid\': submitted && f.nom.errors }"                    formControlName="nom" placeholder="Nom"id="nom">                    <input type="text" class="form-control"                     [ngClass]="{ \'is-invalid\': submitted && f.prenom.errors }"                    formControlName="prenom" placeholder="Prénom"id="prenom">                </fieldset>            </div>        <!--adresse-->            <div class="col-md-4">                <fieldset formGroupName="adresse" id="adresse">                    <legend>Adresse</legend>                                    <input type="text" class="form-control"                     [ngClass]="{ \'is-invalid\': submitted && f.rue.errors }" formControlName="rue" placeholder="N° Rue N° porte" id="rue">                    <input type="text" class="form-control"                     [ngClass]="{ \'is-invalid\': submitted && f.code_postale.errors }"                    formControlName="code_postale" placeholder="Code Postale" id="code_postale">                    <input type="text" class="form-control"                     [ngClass]="{ \'is-invalid\': submitted && f.ville.errors }"                    formControlName="ville" placeholder="ville" id="ville">                    <input type="text" class="form-control"                     [ngClass]="{ \'is-invalid\': submitted && f.pays.errors }"                    formControlName="pays" placeholder="Pays" id="pays">                </fieldset>            </div>        <!--contacts-->            <div class="col-md-4" >                <fieldset formGroupName="contacts" id="contacts">                    <legend>Contacts</legend>                    <input type="text" class="form-control"                     [ngClass]="{ \'is-invalid\': submitted && f.email.errors }"                    formControlName="email" placeholder="adresse email" id="email">                    <input type="tel" class="form-control" placeholder="Mobile(75-63-45-42)"                    [ngClass]="{ \'is-invalid\': submitted && f.mobile.errors }"                        pattern = "[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" formControlName="mobile" id="mobile">                    <input type="tel" class="form-control" formControlName="fixe" placeholder="fixe (72-25-78-56)"                    [ngClass]="{ \'is-invalid\': submitted && f.fixe.errors }"                    pattern = "[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" id="fixe">                </fieldset>            </div>        </div>        <!-- les cartes -->        <div class="row">            <div class="col-md-6">            <fieldset formGroupName="cni" id="cni">                <legend>Carte d\'identite</legend>                <div class="form-group row">                    <label for="numero" class="col-md-4 col-form-label">N° de la carte</label>                    <input type="text" class="form-control col-md-8"                     [ngClass]="{ \'is-invalid\': submitted && f.numero.errors }"                    formControlName="numero" id="numero">                </div>                <div class="form-group row">                    <label for="delivre" class="col-3 col-form-label">Delivré le</label>                    <input type="date" formControlName="delivre" id="delivre"                     [ngClass]="{ \'is-invalid\': submitted && f.delivre.errors }"                    class="form-control col-6">                </div>                <div class="form-group row">                    <label class="col-3 col-form-label" for="fin">expire le</label>                    <input type="date" formControlName="fin"                     [ngClass]="{ \'is-invalid\': submitted && f.fin.errors }"                    class="form-control col-6" id="fin">                </div>            </fieldset>            </div>            <div class="col-md-6">            <fieldset formGroupName="carte_agent" id="carte_agent">              <legend>Carte d\'agent</legend>              <div class="form-group row">                <label for="numero" class="col-md-4 col-form-label">N° de la carte</label>                <input type="text" class="form-control col-md-8"                 [ngClass]="{ \'is-invalid\': submitted && f.numero.errors }"                formControlName="numero" id="numero">              </div>              <div class="row">                <label for="delivre" class="col-3 col-offset-2 col-form-label">Delivré le</label>                <input type="date" formControlName="delivre" id="delivre"                 [ngClass]="{ \'is-invalid\': submitted && f.delivre.errors }"                class="form-control col-6">              </div>              <div class="row">                <label for="fin" class="col-3 col-offset-2 col-form-label">expire le</label>                <input type="date" formControlName="fin"                 [ngClass]="{ \'is-invalid\': submitted && f.fin.errors }"                class="form-control col-6" id="fin">              </div>            </fieldset>            </div>        </div>        <!--fin cartes-->        <div class="row">            <button class="btn btn-danger col-sm-4" type="button">Annuler</button>            <button type="submit" class="btn btn-success col-sm-4 offset-sm-4" [disabled]="agentForm.invalid">Enregistrer</button>        </div>                </form></div></div>'
+    var COMPONENTS = [{'name': 'AgencesComponent', 'selector': 'app-agences'},{'name': 'AgentDetailsComponent', 'selector': 'app-agent-details'},{'name': 'AgentListComponent', 'selector': 'app-agent-list'},{'name': 'AgentPlanningComponent', 'selector': 'app-agent-planning'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'DevisComponent', 'selector': 'app-devis'},{'name': 'DialogEventEditComponent', 'selector': 'app-dialog-event-edit'},{'name': 'DialogEventSelectComponent', 'selector': 'app-dialog-event-select'},{'name': 'FacturationComponent', 'selector': 'app-facturation'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterventionsComponent', 'selector': 'app-interventions'},{'name': 'NewAgentComponent', 'selector': 'app-new-agent'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewCompteComponent', 'selector': 'app-new-compte'},{'name': 'NewSiteComponent', 'selector': 'app-new-site'},{'name': 'PlanningComponent', 'selector': 'app-planning'},{'name': 'PlanningHomeComponent', 'selector': 'app-planning-home'},{'name': 'PriseServiceComponent', 'selector': 'app-prise-service'},{'name': 'SiteListComponent', 'selector': 'app-site-list'},{'name': 'SitePlanningComponent', 'selector': 'app-site-planning'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NewAgentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NewAgentComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

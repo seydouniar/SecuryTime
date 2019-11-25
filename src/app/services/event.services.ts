@@ -75,6 +75,22 @@ export class EventServices{
         })
     }
 
+    addAgentEvent(event: any){
+        return new Promise((revolve,reject) => {
+            const httpOptions = {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json'
+                })
+            };
 
+            this.http.post(this.REG_SERVER + "/events/add_agent", event, httpOptions).toPromise().then(
+                (data) => {
+                    revolve(data);
+                    this.emitEvent();
+                }
+            ).catch(err=>reject(err));
+        })
+    }
+    
 
 }

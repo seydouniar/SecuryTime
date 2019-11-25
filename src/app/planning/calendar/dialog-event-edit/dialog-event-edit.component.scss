@@ -1,0 +1,11 @@
+.edit-form{
+    width: 100%;
+    .form-inline {
+        margin: 2px auto !important;
+        padding: 2px;
+        input,button,label,select  {
+            margin: 2px auto !important;
+            padding: 2px;
+        }
+    }
+}

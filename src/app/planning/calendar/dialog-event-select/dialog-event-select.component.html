@@ -1,0 +1,13 @@
+<h1 class="text-center" mat-dialog-title>Selectionner une horaire</h1>
+<div mat-dialog-content>
+    <ul class="list-group event-item" mat-dialog-actions> 
+        <li class="list-group-item" *ngFor="let event of data" [mat-dialog-close]="event" cdkFocusInitial>
+            <div class="event-content">
+                <h5>{{event.title}}</h5>
+                <p>{{displayDate(event.start)}} {{displayHeure(event.start)}}-{{displayHeure(event.end)}}
+                </p>
+               
+            </div>
+        </li>
+    </ul>
+</div>

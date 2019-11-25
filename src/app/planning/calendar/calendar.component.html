@@ -2,11 +2,18 @@
   
       <!-- <router-outlet></router-outlet> -->
     <div class="sidesection col-md-3">
-      <div *ngIf="!isEditable" class="buttons btn-group btn-group-justified btn-group-sm">
-        <button type="button" class="btn btn-primary" (click)="showAll='tous'">tous</button>
-        <button type="button" class="btn btn-primary" (click)="showAll='site'">Par sites</button>
-        <button type="button" class="btn btn-primary" (click)="showAll='agent'">Par agents</button>
+      <div *ngIf="!isEditable" class="buttons btn-group btn-group-justified btn-group-sm" style="width: 100%;background-color:powderblue;">
+        <button type="button" class="btn btn-outline-secondary" (click)="showAll='tous'">tous</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="showAll='site'">Par sites</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="showAll='agent'">Par agents</button>
       </div>
+      <!-- Search form -->
+      <form class="form-inline active-cyan-4">
+        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+          aria-label="Search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </form>
+
       <ul *ngIf="showAll=== 'agent'" class="list-group" #external>
         <h4>Les agents</h4>
         <li class="list-group-item fc-event" *ngFor="let agent of agents,let i =index" [value]="i">{{agent.nom}}</li>
@@ -35,20 +42,18 @@
     <div class="col-md-9">
       <div *ngIf="isEditable">
         <full-calendar #calendar [events]="[]" *ngIf="options"
-        [header]="options.header" [locales]="options.locales"
-        [editable]="true"
-        [droppable]="true"
-        (dateClick)="open($event)" 
-        (eventClick)="eventClick($event)"
-        (eventDragStop)="eventDragStop($event)"
-        (dayRender)="dayRender($event,e1)"
-        (eventDragStart)="eventDragStart($event)"
-        (eventResizeStop)="eventResizeStop($event)"
-        (eventResizeStart)="eventResizeStart($event)"
-        (eventReceive)="eventReceive($event)"
-        [eventResizableFromStart]="true"
-        [plugins]="options.plugins" 
-        [defaultView]= "'timeGridWeek'"
+          [header]="options.header" [locales]="options.locales"
+          [editable]="true"
+          [droppable]="true"
+          (eventMouseEnter)="eventRender($event,e1)"
+          (eventClick)="eventClick($event)"
+          (eventDrag)="eventDragStop($event)"
+          (eventResize)="eventResizeStop($event)"
+          (eventReceive)="eventReceive($event)"
+          [eventResizableFromStart]="true"
+          [plugins]="options.plugins" 
+          [defaultView]= "'timeGridWeek'"
+          [themeSystem]="options.theme"
         >
       </full-calendar>
       </div>

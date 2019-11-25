@@ -34,6 +34,9 @@ import { EventServices } from './services/event.services';
 import { PlanningHomeComponent } from './planning/planning-home/planning-home.component';
 import { AgentPlanningComponent } from './planning/agent-planning/agent-planning.component';
 import { SitePlanningComponent } from './planning/site-planning/site-planning.component';
+import { DialogEventSelectComponent } from './planning/calendar/dialog-event-select/dialog-event-select.component';
+import { DialogEventEditComponent } from './planning/calendar/dialog-event-edit/dialog-event-edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,12 @@ import { SitePlanningComponent } from './planning/site-planning/site-planning.co
     PlanningHomeComponent,
     AgentPlanningComponent,
     SitePlanningComponent,
+    DialogEventSelectComponent,
+    DialogEventEditComponent,
+  ],
+  entryComponents: [
+    DialogEventSelectComponent,
+    DialogEventEditComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +75,8 @@ import { SitePlanningComponent } from './planning/site-planning/site-planning.co
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,

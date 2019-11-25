@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { AgentServices } from '../services/agent.service';
 import { Agent } from "../modeles/agent";
 import { Site } from '../modeles/site';
@@ -39,7 +39,12 @@ export class PlanningComponent implements OnInit,OnDestroy {
     this.getListAgent();
     this.getEvents();
 
-    
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 500)
+  });
   }
 
  

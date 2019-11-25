@@ -1,11 +1,26 @@
+    <div class="card-deck">
 
-    <div class="buttons btn-group btn-group-justified">
-      <button type="button" class="btn btn-primary" (click)="gotoSub('/planning')">Planning</button>
-      <button type="button" class="btn btn-primary" (click)="gotoSub('/sites-planning')">Par sites</button>
-      <button type="button" class="btn btn-primary" (click)="gotoSub('/agents-planning')">Par agents</button>
+      <div class="card" style="width:400px;height: 10%;" (click)="gotoSub('/planning')">
+        <img class="card-img-top" src="../assets/planning/im5.jpg"  style="width:100%;height: 200px;" alt="Card image">
+        <div class="card-body bg-dark text-white">
+          <h4 class="card-title text-center">Afficher les plannings</h4>
+        </div>
+      </div>
+      <div class="card" style="width:400px; height: 10%;" (click)="gotoSub('/sites-planning')">
+          <img class="card-img-top" src="../assets/planning/im4.jpg" style="width:100%;height: 200px;" alt="Card image">
+          <div class="card-body bg-dark text-white">
+            <h4 class="card-title text-center">Planning des sites</h4>
+          </div>
+        </div>
+        <div class="card" style="width:400px;height: 10%;" (click)="gotoSub('/agents-planning')">
+            <img class="card-img-top" src="../assets/planning/im3.png" style="width:100%;height: 200px;" alt="Card image">
+            <div class="card-body bg-dark text-white">
+              <h4 class="card-title text-center">Planning des agents</h4>
+             
+            </div>
+          </div>
     </div>
     
-
     <div class="container-fluid">
         <router-outlet></router-outlet>
     </div>
