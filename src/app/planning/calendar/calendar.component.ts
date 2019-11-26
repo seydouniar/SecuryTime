@@ -110,6 +110,23 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log(arg.dateStr);
   }
 
+  eventDrag(ev){
+    console.log(ev);
+    
+    const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),null,null,ev.event.id);
+    this.eventServices.updateEvent(newevent).then((data)=>{
+      this.getEvents();
+    }).catch(err=>console.log(err)
+    );
+  }
+
+  eventResize(ev){
+    const  newevent = new Event(ev.event.start.toISOString(),ev.event.end.toISOString(),null,null,ev.event.id);
+    this.eventServices.updateEvent(newevent).then((data)=>{
+      this.getEvents();
+    }).catch(err=>console.log(err)
+    );
+  }
   eventRender(ev){
     console.log(ev.el);
     
@@ -270,7 +287,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
      
   }
 
-  openDialogEdit(event?): void {
+  openDialogEdit(event): void {
     const dialogRef = this.dialog.open(DialogEventEditComponent, {
       width: '40%',
       data: event
@@ -278,13 +295,8 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.eventServices.addAgentEvent({id:result.id,id_agent:this.agent.id}).then(
-        ()=>{
-          this.getEvents();   
-          alert("modification agent avec success");
-        }
-      ).catch(err=>console.log(err)
-      );
+      console.log(result);
+      
     });
      
   }
