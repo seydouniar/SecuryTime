@@ -1,15 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="head-site">
-  <br>
-  <h3>SecuryTime</h3>
-  <p> <strong>tel:</strong> 0752825307 </p>
-</div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
   
 
   <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" (click)="toggleCollapse()" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <button class="navbar-toggler" type="button" data-toggle="slide-collapse" data-target="#collapsibleNavbar" >
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -17,11 +13,11 @@
   <a class="navbar-brand" routerLink="">SecuryTime</a>
 
   <!-- Navbar links -->
-  <div class="collapse navbar-collapse" [class.show]="show" id="collapsibleNavbar">
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="nav navbar-nav mr-auto">
       
       <li class="nav-item dropdown">
-        <a data-toggle="collapse" class="nav-link dropbtn" 
+        <a class="nav-link dropbtn" 
           routerLink="intervention" >Interventions</a>
           <div class="dropdown-content bg-dark">
             <a href="#">Télésurveilleurs</a>
@@ -29,11 +25,11 @@
             <a href="#">Intervention Rondes Reconnaissances divers</a>
           </div>
         </li>
-      <li class="nav-item"><a class="nav-link"
+      <li class="nav-item"><a class="nav-link" 
           routerLink="devis">Devis</a></li>
-      <li class="nav-item"><a class="nav-link"
+      <li class="nav-item"><a class="nav-link" 
           routerLink="facturation">Facturation</a></li>
-      <li class="nav-item"><a class="nav-link"
+      <li class="nav-item"><a class="nav-link" 
           routerLink="agences">Agences</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="planning">Planning</a></li>
     </ul>

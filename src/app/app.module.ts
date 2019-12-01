@@ -16,7 +16,7 @@ import * as firebase from "firebase";
 import { environment } from "../environments/environment";
 import { HomeComponent } from './home/home.component';
 import { GuardService } from './services/guard.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanningComponent } from './planning/planning.component';
 import { PriseServiceComponent } from './prise-service/prise-service.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,6 +37,9 @@ import { SitePlanningComponent } from './planning/site-planning/site-planning.co
 import { DialogEventSelectComponent } from './planning/calendar/dialog-event-select/dialog-event-select.component';
 import { DialogEventEditComponent } from './planning/calendar/dialog-event-edit/dialog-event-edit.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PopoverComponent } from './popover/popover.component';
+import { PopoverService } from './services/popover.service';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 @NgModule({
   declarations: [
@@ -62,10 +65,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     SitePlanningComponent,
     DialogEventSelectComponent,
     DialogEventEditComponent,
+    PopoverComponent,
   ],
   entryComponents: [
     DialogEventSelectComponent,
-    DialogEventEditComponent
+    DialogEventEditComponent,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -76,13 +81,16 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     BrowserAnimationsModule,
     FullCalendarModule,
-    MatDialogModule
+    MatDialogModule,
+    PopoverModule.forRoot()
+    
   ],
   providers: [
     AuthService,
     GuardService,
     AgentServices,
-    EventServices
+    EventServices,
+    PopoverService
   ],
   bootstrap: [AppComponent]
 })

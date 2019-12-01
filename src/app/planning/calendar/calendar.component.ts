@@ -1,5 +1,4 @@
-import { Component, ViewChild, OnInit, ElementRef, Input, OnDestroy, AfterViewInit } from '@angular/core';
-import { Calendar } from '@fullcalendar/core';
+import { Component, ViewChild, OnInit, ElementRef, Input, OnDestroy, AfterViewInit, ViewContainerRef } from '@angular/core';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGrigPlugin from '@fullcalendar/timegrid';
@@ -8,16 +7,19 @@ import listPlugin from '@fullcalendar/list';
 import frLocale from '@fullcalendar/core/locales/fr';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup} from '@angular/forms';
 import { Agent } from 'src/app/modeles/agent';
 import { Site } from 'src/app/modeles/site';
 import { EventServices } from 'src/app/services/event.services';
 import { Event } from 'src/app/modeles/event';
-import { Subscription } from 'rxjs';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription, from } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEventSelectComponent } from './dialog-event-select/dialog-event-select.component';
 import { DialogEventEditComponent } from './dialog-event-edit/dialog-event-edit.component';
+import { PopoverService } from 'src/app/services/popover.service';
+import * as $ from 'jquery';
+declare var jQuery: any;
 
 @Component({
   selector: 'app-calendar',
@@ -29,6 +31,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('calendar', {static: false}) calendarComponent: FullCalendarComponent; // the #calendar in the template
   @ViewChild('serviceModale', { static: false }) modal: ElementRef; // the #calendar in the template
   @ViewChild('external', {static: false, read: ElementRef}) external: ElementRef;
+  @ViewChild('popoverElementRef', { static:false,read: ViewContainerRef }) popoverElementRef: ViewContainerRef;
 
   @Input() agents: Agent[];
   @Input() sites: Site[];
@@ -42,6 +45,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
   refreshEvents;
   calendarEvents: any = []
 
+ 
 
   eventSubcription: Subscription;
   serviceForm: FormGroup;
@@ -52,7 +56,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
         center: 'title',
         right: 'dayGridMonth,timeGridMonth,timeGridWeek,timeGridDay,listMonth',
         };
-  constructor(public dialog: MatDialog, private eventServices: EventServices, private modalService: NgbModal) { }
+  constructor(public dialog: MatDialog, private eventServices: EventServices, public popoverService: PopoverService) { }
 
   ngOnInit() {
     this.eventSubcription = this.eventServices.eventSubject.subscribe((data) => {
@@ -128,8 +132,11 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
     );
   }
   eventRender(ev){
-    console.log(ev.el);
-    
+    this.popoverService.showPopover(this.popoverElementRef, ev);
+  }
+
+  eventMouseOut(ev){
+    this.popoverElementRef.clear();
   }
   // event click
   eventClick(ev) {
@@ -289,7 +296,7 @@ export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   openDialogEdit(event): void {
     const dialogRef = this.dialog.open(DialogEventEditComponent, {
-      width: '40%',
+      width: '60%',
       data: event
     });
 

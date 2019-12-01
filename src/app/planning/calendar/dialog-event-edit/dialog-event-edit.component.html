@@ -1,7 +1,7 @@
 
 <h1 class="text-center" mat-dialog-title>Modifier l'horaire</h1>
 <div mat-dialog-content>
-    <form  (ngSubmit)="onSubmit(f)" #f="ngForm" class="form-group edit-form">
+    <form  [formGroup]="eventForm" class="form-group edit-form">
         <div class="form-inline">
             <label for="agent">Agent</label>
             <select formControlName="agent" class="form-control">
@@ -12,17 +12,17 @@
         
         
         <div class="form-inline">
-            <label for="">Debut</label>
-            <input type="date" [ngModel]="myEvent.debut"   class="form-control"  ngModel>
-            <input type="time" [ngModel]="myEvent.dh" class="form-control"  ngModel>
+            <label for="">Du</label>
+            <input matInput type="date" [(ngModel)]="myEvent.debut"   class="form-control" formControlName="debut">
+            <input matInput type="time" step="300" [(ngModel)]="myEvent.dh" class="form-control" formControlName="dh">
         </div>
         
         <div class="form-inline">
-            <label for="fin">Fin</label>
-            <input type="date" [ngModel]="myEvent.fin" class="form-control"  ngModel>
-            <input type="time" [ngModel]="myEvent.fh" class="form-control"  ngModel>
+            <label for="fin">Au</label>
+            <input matInput type="date" [(ngModel)]="myEvent.fin" class="form-control" formControlName="fin">
+            <input matInput type="time" step="300" [(ngModel)]="myEvent.fh" class="form-control" formControlName="fh">
         </div>
-        <h4>{{myEvent.debut}} - {{myEvent.fin}}</h4>
+        
         <button class="btn btn-outline-secondary" [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
     </form>
 </div>

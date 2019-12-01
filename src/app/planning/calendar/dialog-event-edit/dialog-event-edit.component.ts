@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class DialogEventEditComponent implements OnInit{
 
- 
+  eventForm: FormGroup;
   myEvent:any = {
     agent:'afrd',
     debut:'',
@@ -19,7 +19,7 @@ export class DialogEventEditComponent implements OnInit{
     fh:''
   }
   constructor(public dialogRef: MatDialogRef<DialogEventEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data) { }
+    @Inject(MAT_DIALOG_DATA) public data, private formBuilder: FormBuilder) { }
 
     onNoClick(): void {
       this.dialogRef.close();
@@ -27,15 +27,27 @@ export class DialogEventEditComponent implements OnInit{
 
 
     ngOnInit(){
-      console.log(this.displayDate(this.data.event.start));
-      this.myEvent.debut = this.displayDate(this.data.event.start)
-      this.myEvent.fin = this.displayDate(this.data.event.end)
-      this.myEvent.dh = this.displayHeure(this.data.event.start)
-      this.myEvent.fh = this.displayHeure(this.data.event.end)
+      console.log(this.data.event.id);
+      this.myEvent.debut = this.data.event.start.toISOString().split('T',2)[0];
+      this.myEvent.fin = this.data.event.end.toISOString().split('T',2)[0];
+      this.myEvent.dh = this.displayHeure(this.data.event.start);
+      this.myEvent.fh = this.displayHeure(this.data.event.end);
+      console.log(this.myEvent.debut);
+      
+      this.initForm();
      
     }
 
 
+    initForm(){
+      this.eventForm = this.formBuilder.group({
+        agent: [''],
+        debut: [''],
+        fin: [''],
+        dh:[''],
+        fh:['']
+      })
+    }
    
   displayDate(jour): String {
     let str = formatDate(jour, {

@@ -50,12 +50,15 @@
           (eventDrop)="eventDrag($event)"
           (eventResize)="eventResize($event)"
           (eventReceive)="eventReceive($event)"
+          (eventMouseLeave)="eventMouseOut($event)"
           [eventResizableFromStart]="true"
           [plugins]="options.plugins" 
           [defaultView]= "'timeGridWeek'"
           [themeSystem]="options.theme"
         >
       </full-calendar>
+      <ng-template #popoverElementRef></ng-template>
+
       </div>
       
       <div *ngIf="!isEditable">

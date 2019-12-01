@@ -63,3 +63,33 @@ footer {
   overflow: auto;
   
 }
+
+@media only screen and (max-width: 967px) {
+  #collapsibleNavbar {
+    position: fixed;
+    top: 11%;
+    left: 0px;
+    padding: 20px;
+    z-index: 99;
+    width: 40%;
+    height: 100%;
+    background-color: inherit;
+    overflow: auto;
+    button{
+      bottom: 0;
+    }
+  }
+  .menu-overlay {
+    display: none;
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    /* IE7 & 8 */
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 49;
+  }
+}
